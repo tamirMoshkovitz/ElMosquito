@@ -997,19 +997,19 @@ MonoBehaviour:
     m_Value: 0.75
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.75
   scatter:
     m_OverrideState: 1
-    m_Value: 0.7
+    m_Value: 0.75
   tint:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   dirtTexture:
     m_OverrideState: 1
-    m_Value: {fileID: 0}
+    m_Value: {fileID: 2800000, guid: dc1d74bb562bb440c8f1f555b94bef18, type: 3}
   dirtIntensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 15
   anamorphic:
     m_OverrideState: 1
     m_Value: 1
@@ -1194,7 +1194,7 @@ MonoBehaviour:
     m_Value: {fileID: 0}
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.75
   m_MaxSamples:
     m_OverrideState: 1
     m_Value: 6
@@ -2411,7 +2411,7 @@ MonoBehaviour:
     m_Value: 2
   useFullACES:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   toeStrength:
     m_OverrideState: 1
     m_Value: 0
