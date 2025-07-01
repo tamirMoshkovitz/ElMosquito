@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6a9f58aef510a3a48bd4c40b6d4e496e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 213973
+  packageName: Mosquito
+  packageVersion: 1.0
+  assetPath: Assets/Blitz Games/Mosquito/Art/Animations/Mosquito_animation.controller
+  uploadId: 481763
