@@ -8,7 +8,6 @@ public class PlayerControler : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 10f;
-    [SerializeField] private float verticalSpeed = 3f;
     [SerializeField] private float fixedForwardSpeed = 5f;
     [SerializeField] private float moveAcceleration = 30f;
 
@@ -16,11 +15,7 @@ public class PlayerControler : MonoBehaviour
     [SerializeField] private float rotationSpeed = 100f;
     [SerializeField] private float inputRotationScale = 0.5f;
     [SerializeField] private float autoLevelSpeed = 2f;
-
-    [Header("Roll Settings")]
-    [SerializeField] private float maxRollAngle = 30f;
-    [SerializeField] private float rollSmooth = 5f;
-
+    
     private Rigidbody _rigidbody;
     private PlayerInput _playerInput;
 
@@ -95,11 +90,12 @@ public class PlayerControler : MonoBehaviour
 
         if (!_lookInputActive)
         {
-            // Slow down auto-leveling smoothing factor for gradual reset
-            pitch = Mathf.LerpAngle(transform.eulerAngles.x, 0f, autoLevelSpeed * Time.fixedDeltaTime) - transform.eulerAngles.x;
-            roll = Mathf.LerpAngle(transform.eulerAngles.z, 0f, autoLevelSpeed * Time.fixedDeltaTime) - transform.eulerAngles.z;
-            pitch = Mathf.DeltaAngle(0f, pitch);
-            roll = Mathf.DeltaAngle(0f, roll);
+            // Unified auto-leveling for both pitch and roll using the same smoothing factor and calculation
+            float pitchTarget = Mathf.DeltaAngle(transform.eulerAngles.x, 0f);
+            float rollTarget = Mathf.DeltaAngle(transform.eulerAngles.z, 0f);
+
+            pitch = Mathf.Lerp(0f, pitchTarget, autoLevelSpeed * Time.fixedDeltaTime);
+            roll = Mathf.Lerp(0f, rollTarget, autoLevelSpeed * Time.fixedDeltaTime);
         }
 
         Quaternion deltaRotation = Quaternion.Euler(pitch, 0f, roll);
