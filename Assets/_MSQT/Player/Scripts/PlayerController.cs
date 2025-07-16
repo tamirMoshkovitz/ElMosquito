@@ -107,7 +107,7 @@ public class PlayerControler : MonoBehaviour
 
         if (_doBoost)
         {
-            _rigidbody.AddForce(transform.forward * moveSpeed * 50, ForceMode.Acceleration);
+            _rigidbody.AddForce(transform.forward * (moveSpeed * 50), ForceMode.Acceleration);
             _doBoost = false;
         }
         else
@@ -128,5 +128,6 @@ public class PlayerControler : MonoBehaviour
 
         // Optionally zero angular velocity to prevent spinning
         _rigidbody.angularVelocity = Vector3.zero;
+        _rigidbody.linearVelocity = Vector3.zero;
     }
 }
