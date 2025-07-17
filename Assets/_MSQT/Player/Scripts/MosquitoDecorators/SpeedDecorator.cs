@@ -12,7 +12,7 @@ namespace _MSQT.Player.Scripts.MosquitoBehaviors
         
         public float GetMovementSpeed()
         {
-            throw new System.NotImplementedException();
+            return _previousDecorator.GetMovementSpeed() * 1.2f;
         }
 
         public float GetRotationSpeed()
@@ -27,7 +27,7 @@ namespace _MSQT.Player.Scripts.MosquitoBehaviors
 
         public IMosquitoDecorator GetPreviousDecorator()
         {
-            return _previousDecorator;
+            return _previousDecorator.GetPreviousDecorator(); // Speed decorators come after maneuver decorators and are not independent
         }
 
         public float UpdateHP(float deltaTime)

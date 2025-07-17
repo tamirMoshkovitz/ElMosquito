@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using _MSQT.Core.Scripts;
+using _MSQT.Player.Scripts.MosquitoBehaviors;
 using _MSQT.Player.Scripts.MosquitoDecorators;
 using _MSQT.Player.Scripts.UI;
 using UnityEngine;
@@ -27,8 +28,22 @@ namespace _MSQT.Player.Scripts
         
         [Header("UI")]
         [SerializeField] private PlayerInfoManager infoManager;
-    
-        public IMosquitoDecorator MosquitoBehaviour { get; set; }
+
+        private IMosquitoDecorator _mosquitoBehaviour;
+        public IMosquitoDecorator MosquitoBehaviour
+        {
+            get => _mosquitoBehaviour;
+            set
+            {
+                _mosquitoBehaviour = value;
+                // if Maneuver is high, add speed
+                if (_mosquitoBehaviour.GetRotationSpeed() >= MaxManeuver * .9f)
+                {
+                    _mosquitoBehaviour = new SpeedDecorator(_mosquitoBehaviour);
+                }
+            }
+        }
+
         private Rigidbody _rigidbody;
         private PlayerInput _playerInput;
 
