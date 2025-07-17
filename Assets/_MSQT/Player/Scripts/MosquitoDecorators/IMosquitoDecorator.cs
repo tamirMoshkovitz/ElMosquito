@@ -1,11 +1,12 @@
-namespace _MSQT.Player.Scripts.MosquitoBehaviors
+namespace _MSQT.Player.Scripts.MosquitoDecorators
 {
     public interface IMosquitoDecorator
     {
         float GetMovementSpeed();
         float GetRotationSpeed();
-        float GetHealth();
         float GetDamage();
+        float GetHealingSpeed();
+        float UpdateHP(float deltaTime);
         IMosquitoDecorator GetPreviousDecorator();
     }
 }

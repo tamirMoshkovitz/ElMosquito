@@ -1,17 +1,13 @@
-using System;
-using _MSQT.Player.Scripts;
+
 using _MSQT.Player.Scripts.MosquitoBehaviors;
-using UnityEngine;
 
 namespace _MSQT._MQSTPowerUps.Scripts
 {
-    public class ManeuverPowerUp: _MSQTPowerUps
+    public class ManeuverPowerUp : _MSQTPowerUps<ManeuverDecorator>
     {
-        private void OnTriggerEnter(Collider other)
+        private void Awake()
         {
-            PlayerControler player = other.gameObject.GetComponent<PlayerControler>();
-            player.MosquiroBehaviour = new Player.Scripts.MosquitoBehaviors.ManeuverPowerUp(player.MosquiroBehaviour);
-            Debug.Log("ManeuverPowerUp");
+            SetConstructor(previousDecorator => new ManeuverDecorator(previousDecorator));
         }
     }
 }

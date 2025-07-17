@@ -1,5 +1,8 @@
+using System;
+using System.Collections;
 using _MSQT.Core.Scripts;
-using _MSQT.Player.Scripts.MosquitoBehaviors;
+using _MSQT.Player.Scripts.MosquitoDecorators;
+using _MSQT.Player.Scripts.UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,30 +21,57 @@ namespace _MSQT.Player.Scripts
         [SerializeField] private float rotationSpeed = 100f;
         [SerializeField] private float inputRotationScale = 0.5f;
         [SerializeField] private float autoLevelSpeed = 2f;
+        
+        [Header("Attack")]
+        [SerializeField] private float baseDamage = 10f;
+        
+        [Header("UI")]
+        [SerializeField] private PlayerInfoManager infoManager;
     
-        public IMosquitoDecorator MosquiroBehaviour { get; set; }
+        public IMosquitoDecorator MosquitoBehaviour { get; set; }
         private Rigidbody _rigidbody;
         private PlayerInput _playerInput;
 
         private Vector2 _lookInput;       // right stick X,Y
         private bool _doBoost;
-        private bool _lookInputActive = false;
+        private bool _lookInputActive;
 
         private Vector3 _currentVelocity;
+
+        private float _health = 100f;
+        private const float MaxHealth = 100f;
+        private const float MaxManeuver = 337.5f;
+        private const float MaxDamage = 50f;
+        public float Health
+        {
+            get => _health;
+            private set
+            {
+                _health = Math.Clamp(value, 0f, 100f);
+                infoManager.SetHP(_health / MaxHealth);
+            }
+        }
 
         void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _playerInput = GetComponent<PlayerInput>();
-            MosquiroBehaviour = new BasicMosquitoBehavior(moveSpeed, rotationSpeed, 100f, 10f);
+            MosquitoBehaviour = new BasicMosquitoBehavior(moveSpeed, rotationSpeed, baseDamage);
+            infoManager.Awake();
+        }
+
+        private void Start()
+        {
+            infoManager.SetHP(Health / MaxHealth);
+            infoManager.SetManeuver(MosquitoBehaviour.GetRotationSpeed() / MaxManeuver);
+            infoManager.SetDamage(MosquitoBehaviour.GetDamage() / MaxDamage);
+            infoManager.Start();
         }
 
         private void OnEnable()
         {
             _playerInput.actions["Look"].performed += OnLook;
             _playerInput.actions["Look"].canceled += OnLook;
-            _playerInput.actions["Attack"].performed += OnBuzzAttack;
-            // playerInput.actions["Jump"].performed += ;
             _playerInput.actions["Boost"].performed += OnBoost;
         }
     
@@ -49,8 +79,6 @@ namespace _MSQT.Player.Scripts
         {
             _playerInput.actions["Look"].performed -= OnLook;
             _playerInput.actions["Look"].canceled -= OnLook;
-            _playerInput.actions["Attack"].performed -= OnBuzzAttack;
-            // playerInput.actions["Jump"].performed -= ;
             _playerInput.actions["Boost"].performed -= OnBoost;
         }
 
@@ -69,29 +97,26 @@ namespace _MSQT.Player.Scripts
             }
         }
 
-        public void OnBuzzAttack(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                Debug.Log("Buzz attack!");
-                // Implement buzz attack logic here
-            }
-        }
-
         private void OnBoost(InputAction.CallbackContext context)
         {
             _doBoost = true;
         }
 
+        void Update()
+        {
+            Health = Mathf.Clamp(Health + MosquitoBehaviour.UpdateHP(Time.deltaTime), 0f, MaxHealth);
+            infoManager.UpdateHPNoLerp(Health / MaxHealth);
+        }
+
         void FixedUpdate()
         {
-            Vector3 desiredVelocity = transform.forward * (fixedForwardSpeed + MosquiroBehaviour.GetMovementSpeed());
+            Vector3 desiredVelocity = transform.forward * (fixedForwardSpeed + MosquitoBehaviour.GetMovementSpeed());
             _currentVelocity = Vector3.MoveTowards(_currentVelocity, desiredVelocity, moveAcceleration * Time.fixedDeltaTime);
             _rigidbody.MovePosition(_rigidbody.position + _currentVelocity * Time.fixedDeltaTime);
 
             // Reduce pitch/roll sensitivity
-            float pitch = _lookInput.y * MosquiroBehaviour.GetRotationSpeed() * inputRotationScale * Time.fixedDeltaTime;
-            float roll = -_lookInput.x * MosquiroBehaviour.GetRotationSpeed() * inputRotationScale * Time.fixedDeltaTime;
+            float pitch = _lookInput.y * MosquitoBehaviour.GetRotationSpeed() * inputRotationScale * Time.fixedDeltaTime;
+            float roll = -_lookInput.x * MosquitoBehaviour.GetRotationSpeed() * inputRotationScale * Time.fixedDeltaTime;
 
             if (!_lookInputActive)
             {
@@ -106,20 +131,22 @@ namespace _MSQT.Player.Scripts
             Quaternion deltaRotation = Quaternion.Euler(pitch, 0f, roll);
             _rigidbody.MoveRotation(_rigidbody.rotation * deltaRotation);
 
-            if (_doBoost)
+            if (_doBoost && _health > 75f)
             {
-                _rigidbody.AddForce(transform.forward * (MosquiroBehaviour.GetMovementSpeed() * 50), ForceMode.Acceleration);
+                _rigidbody.AddForce(transform.forward * (MosquitoBehaviour.GetMovementSpeed() * 50), ForceMode.Acceleration);
+                StartCoroutine(GetHurt());
                 _doBoost = false;
             }
             else
             {
                 // Lerp back to desired velocity for smoother recovery after boost
-                _currentVelocity = Vector3.Lerp(_currentVelocity, transform.forward * (fixedForwardSpeed + MosquiroBehaviour.GetMovementSpeed()), Time.fixedDeltaTime * moveAcceleration * 2f);
+                _currentVelocity = Vector3.Lerp(_currentVelocity, transform.forward * (fixedForwardSpeed + MosquitoBehaviour.GetMovementSpeed()), Time.fixedDeltaTime * moveAcceleration * 2f);
             }
         }
 
         private void OnCollisionEnter(Collision other)
         {
+            MosquitoBehaviour = MosquitoBehaviour.GetPreviousDecorator();
             // Reflect the current velocity vector on contact normal
             Vector3 bounceDirection = Vector3.Reflect(_currentVelocity.normalized, other.GetContact(0).normal);
 
@@ -130,6 +157,23 @@ namespace _MSQT.Player.Scripts
             // Optionally zero angular velocity to prevent spinning
             _rigidbody.angularVelocity = Vector3.zero;
             _rigidbody.linearVelocity = Vector3.zero;
+
+
+            StartCoroutine(GetHurt());
+        }
+
+        private IEnumerator GetHurt()
+        {
+            float targetHealth = Health - 10f;
+            float elapsedTime = 0f;
+            while (elapsedTime < 0.5f)
+            {
+                elapsedTime += Time.deltaTime;
+                Health = Mathf.Lerp(Health, targetHealth, elapsedTime / 0.5f);
+                infoManager.UpdateHPNoLerp(Health / MaxHealth);
+                yield return null;
+            }
+            Health = targetHealth;
         }
     }
 }
