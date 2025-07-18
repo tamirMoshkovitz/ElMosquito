@@ -21,7 +21,7 @@ namespace _MSQT._MQSTPowerUps.Scripts
             {
                 PlayerController player = other.gameObject.GetComponent<PlayerController>();
                 player.MosquitoBehaviour = _constructorFunc(player.MosquitoBehaviour);
-                PowerUpsSpawner.Instance.ReturnPowerUp(this.transform);
+                PowerUpsSpawner.Instance.ReturnPowerUp(transform);
             }
         }
     }

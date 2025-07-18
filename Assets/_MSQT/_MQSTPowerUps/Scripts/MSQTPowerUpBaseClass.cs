@@ -20,9 +20,14 @@ namespace _MSQT._MQSTPowerUps.Scripts
 
         public void DisablePowerUp()
         {
+            Vector3 originalScale = transform.localScale;
             transform.DOPunchScale(Vector3.one * 1.2f, 0.15f).OnComplete(
                 () => transform.DOScale(Vector3.zero, 0.15f).OnComplete(
-                    () => gameObject.SetActive(false)
+                    () =>
+                    {
+                        transform.localScale = originalScale;
+                        gameObject.SetActive(false);
+                    }
                 )
             );
         }
