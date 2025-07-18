@@ -22,7 +22,7 @@ namespace _MSQT._MQSTPowerUps.Scripts
             {
                 PlayerControler player = other.gameObject.GetComponent<PlayerControler>();
                 player.MosquitoBehaviour = _constructorFunc(player.MosquitoBehaviour);
-                // TODO: Return to pool
+                PowerUpsPool.Instance.ReturnPowerUp(this.transform);
             }
         }
     }

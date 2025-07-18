@@ -178,6 +178,7 @@ namespace _MSQT.Player.Scripts
         private void OnCollisionEnter(Collision other)
         {
             MosquitoBehaviour = MosquitoBehaviour.GetPreviousDecorator();
+            
             // Reflect the current velocity vector on contact normal
             Vector3 bounceDirection = Vector3.Reflect(_currentVelocity.normalized, other.GetContact(0).normal);
 
