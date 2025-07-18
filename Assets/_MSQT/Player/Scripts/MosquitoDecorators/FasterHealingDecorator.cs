@@ -10,7 +10,7 @@ namespace _MSQT.Player.Scripts.MosquitoDecorators
         public FasterHealingDecorator(IMosquitoDecorator previousDecorator)
         {
             _previousDecorator = previousDecorator;
-            _healingSpeed = previousDecorator.GetHealingSpeed() * 1.5f;
+            _healingSpeed = previousDecorator.GetHealingSpeed() + 1f;
         }
 
         public float GetMovementSpeed()

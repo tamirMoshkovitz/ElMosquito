@@ -7,7 +7,7 @@ namespace _MSQT.Player.Scripts.MosquitoDecorators
         private protected float MovementSpeed;
         private protected float RotationSpeed;
         private protected float Damage;
-        private protected float HealingSpeed = 1f;
+        private protected float HealingSpeed = .5f;
         
         public BasicMosquitoBehavior(float movementSpeed, float rotationSpeed, float damage)
         {

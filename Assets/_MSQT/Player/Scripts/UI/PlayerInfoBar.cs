@@ -59,7 +59,7 @@ namespace _MSQT.Player.Scripts.UI
             _startWidth = targetWidth;
         }
 
-        public IEnumerator UpdateLerp(float value)
+        public IEnumerator UpdateLerp(float value) // TODO: first time it lerps from 1 to value instead of from initial value
         {
             if (Mathf.Approximately(value, _targetValue)) yield break;
             
