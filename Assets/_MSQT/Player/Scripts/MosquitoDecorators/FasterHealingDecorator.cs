@@ -28,7 +28,7 @@ namespace _MSQT.Player.Scripts.MosquitoDecorators
             return _previousDecorator.GetDamage();
         }
 
-        public PlayerControler GetPlayer()
+        public PlayerController GetPlayer()
         {
             throw new System.NotImplementedException();
         }

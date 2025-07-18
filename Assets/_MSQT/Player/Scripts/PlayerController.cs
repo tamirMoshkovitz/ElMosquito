@@ -11,7 +11,7 @@ namespace _MSQT.Player.Scripts
 {
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(PlayerInput))]
-    public class PlayerControler : MSQTMono
+    public class PlayerController : MSQTMono
     {
         [Header("Movement Settings")]
         [SerializeField] private float moveSpeed = 10f;
@@ -19,7 +19,7 @@ namespace _MSQT.Player.Scripts
         [SerializeField] private float moveAcceleration = 30f;
 
         [Header("Rotation Settings")]
-        [SerializeField] private float baseRotationSpeed = 100f;
+        [SerializeField] private float baseRotationSpeed = 150f; // TODO: refactor the rotation\maneuver naming (same meaning)
         [SerializeField] private float inputRotationScale = 0.5f;
         [SerializeField] private float autoLevelSpeed = 2f;
         

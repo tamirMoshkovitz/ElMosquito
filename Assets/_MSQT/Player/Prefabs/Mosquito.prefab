@@ -1578,7 +1578,7 @@ MonoBehaviour:
   moveSpeed: 2
   fixedForwardSpeed: 1
   moveAcceleration: 3
-  rotationSpeed: 150
+  baseRotationSpeed: 150
   inputRotationScale: 0.5
   autoLevelSpeed: 2
   baseDamage: 10

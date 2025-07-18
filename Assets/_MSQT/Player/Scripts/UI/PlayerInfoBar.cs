@@ -12,7 +12,6 @@ namespace _MSQT.Player.Scripts.UI
 
         private float _fullWidth;
         private float _targetValue = 0f;
-        private float _lerpTimer = 0f;
         private float _startWidth = 0f;
         
         
@@ -30,7 +29,6 @@ namespace _MSQT.Player.Scripts.UI
         {
             float difference = newValue - _targetValue;
             _targetValue = newValue;
-            _lerpTimer = 0f;
             _startWidth = bar ? bar.sizeDelta.x : 0f;
             return difference != 0;
         }

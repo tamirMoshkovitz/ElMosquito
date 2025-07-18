@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _MSQT.Core.Scripts;
+using _MSQT.Player.Scripts.MosquitoDecorators;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -110,7 +111,7 @@ namespace _MSQT._MQSTPowerUps.Scripts
         {
             if (powerUp != null)
             {
-                powerUp.gameObject.SetActive(false);
+                powerUp.gameObject.GetComponent<MSQTPowerUpBaseClass>().DisablePowerUp();
                 _collectedPowerUps.Push(powerUp);
             }
             else
