@@ -113,14 +113,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval: 30
-  maxManeuverPowerUps: 3
-  maxDamagePowerUps: 5
-  maxHealthPowerUps: 4
   prefabAndAmount:
   - powerUpPrefab: {fileID: 8121492721766959543, guid: 20cbca86003044e29b3c1625e45feac9, type: 3}
     maxCount: 3
   - powerUpPrefab: {fileID: 9166904255705845750, guid: 9cb55d5d3a3e04f4e8784aaf4ef83c2d, type: 3}
-    maxCount: 5
+    maxCount: 4
   - powerUpPrefab: {fileID: 1728957812837524690, guid: ce9a2cf6ee37c4e2e99473f6f7cd35f3, type: 3}
     maxCount: 4
   trainFront: {fileID: 3714024589355244700}

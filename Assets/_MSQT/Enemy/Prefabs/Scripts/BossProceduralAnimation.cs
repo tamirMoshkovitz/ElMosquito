@@ -1,4 +1,5 @@
 using _MSQT.Core.Scripts;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -17,6 +18,9 @@ namespace _MSQT.Enemy.Prefabs.Scripts
 
         [SerializeField] private Transform head;
 
+        [Header("Cinemachine Path")]
+        [SerializeField] private CinemachinePathBase ikPath;
+
 
         void Update()
         {
@@ -30,18 +34,32 @@ namespace _MSQT.Enemy.Prefabs.Scripts
 
             if (isInRange)
             {
-                Vector3 p0 = transform.position + transform.right * 0.3f + transform.up * 0.8f; // start at hand
-                Vector3 p1 = transform.position + transform.right * 0.8f + transform.up * 1.5f; // arc upward and right
-                Vector3 p2 = targetObject.position + targetObject.forward * 0.5f + Vector3.up * 0.2f; // end toward player
+                if (ikPath)
+                {
+                    // Evaluate a position along the Cinemachine path based on time
+                    float pathLength = ikPath.MaxPos;
+                    float t = Mathf.PingPong(Time.time * 0.5f, 1.0f); // slower interpolation
+                    float pathPosition = Mathf.Lerp(0, pathLength, t);
 
-                float t = Mathf.PingPong(Time.time * 2.0f, 1.0f);
+                    Vector3 pathPoint = ikPath.EvaluatePositionAtUnit(pathPosition, CinemachinePathBase.PositionUnits.PathUnits);
+                    handTarget.position = Vector3.Lerp(handTarget.position, pathPoint, Time.deltaTime * 10f);
+                    handTarget.LookAt(targetObject.position);
+                }
+                else
+                {
+                    // Fallback if no path is assigned
+                    Vector3 start = handTarget.position;
+                    Vector3 mid = targetObject.position + targetObject.forward * 0.5f + Vector3.up * 0.5f;
+                    Vector3 end = targetObject.position + targetObject.forward * 0.1f;
 
-                // De Casteljau's algorithm for smooth curve
-                Vector3 a = Vector3.Lerp(p0, p1, t);
-                Vector3 b = Vector3.Lerp(p1, p2, t);
-                Vector3 curvePoint = Vector3.Lerp(a, b, t);
+                    float t = Mathf.PingPong(Time.time * 1.5f, 1.0f);
+                    Vector3 a = Vector3.Lerp(start, mid, t);
+                    Vector3 b = Vector3.Lerp(mid, end, t);
+                    Vector3 final = Vector3.Lerp(a, b, t);
 
-                handTarget.position = Vector3.Lerp(handTarget.position, curvePoint, Time.deltaTime * 10f);
+                    handTarget.position = Vector3.Lerp(handTarget.position, final, Time.deltaTime * 10f);
+                    handTarget.LookAt(targetObject.position);
+                }
 
                 if (elbowHint)
                 {

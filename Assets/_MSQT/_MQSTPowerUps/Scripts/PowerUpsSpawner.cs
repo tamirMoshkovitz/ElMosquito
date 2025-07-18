@@ -22,9 +22,6 @@ namespace _MSQT._MQSTPowerUps.Scripts
         
         [Header("Spawn Settings")]
         [SerializeField] private float spawnInterval = 30f;
-        [SerializeField] private int maxManeuverPowerUps = 3;
-        [SerializeField] private int maxDamagePowerUps = 5;
-        [SerializeField] private int maxHealthPowerUps = 4;
         
         [Header("PowerUps List")]
         [SerializeField] private List<PowerUpData> prefabAndAmount = new ();
