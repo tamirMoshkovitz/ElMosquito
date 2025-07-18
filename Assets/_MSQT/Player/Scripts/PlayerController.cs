@@ -19,7 +19,7 @@ namespace _MSQT.Player.Scripts
         [SerializeField] private float moveAcceleration = 30f;
 
         [Header("Rotation Settings")]
-        [SerializeField] private float rotationSpeed = 100f;
+        [SerializeField] private float baseRotationSpeed = 100f;
         [SerializeField] private float inputRotationScale = 0.5f;
         [SerializeField] private float autoLevelSpeed = 2f;
         
@@ -49,13 +49,13 @@ namespace _MSQT.Player.Scripts
                 float newDamage = _mosquitoBehaviour.GetDamage();
                 if (!Mathf.Approximately(oldDamage, newDamage))
                 {
-                    StartCoroutine(infoManager.UpdateDamageBar(newDamage / MaxDamage));
+                    StartCoroutine(infoManager.UpdateDamageBar((newDamage - baseDamage) / (MaxDamage - baseDamage)));
                 }
                 
                 float newRotationSpeed = _mosquitoBehaviour.GetRotationSpeed();
                 if (!Mathf.Approximately(oldRotationSpeed, newRotationSpeed))
                 {
-                    StartCoroutine(infoManager.UpdateManeuverBar(newRotationSpeed / MaxManeuver));
+                    StartCoroutine(infoManager.UpdateManeuverBar((newRotationSpeed - baseRotationSpeed) / (MaxManeuver - baseRotationSpeed)));
                 }
             }
         }
@@ -72,7 +72,9 @@ namespace _MSQT.Player.Scripts
         private float _health = 100f;
         private const float MaxHealth = 100f;
         private const float MaxManeuver = 337.5f;
+
         private const float MaxDamage = 50f;
+
         public float Health
         {
             get => _health;
@@ -87,15 +89,24 @@ namespace _MSQT.Player.Scripts
         {
             _rigidbody = GetComponent<Rigidbody>();
             _playerInput = GetComponent<PlayerInput>();
-            _mosquitoBehaviour = new BasicMosquitoBehavior(moveSpeed, rotationSpeed, baseDamage);
+            
+            // the game starts with a some power-ups
+            baseRotationSpeed /= 1.5f;
+            baseDamage /= 1.5f;
+            _mosquitoBehaviour = new BasicMosquitoBehavior(moveSpeed, baseRotationSpeed, baseDamage);   
             infoManager.Awake();
         }
 
         private void Start()
         {
+            MosquitoBehaviour = new ManeuverDecorator(_mosquitoBehaviour);
+            MosquitoBehaviour = new DamageDecorator(_mosquitoBehaviour);
+
             infoManager.SetHP(Health / MaxHealth);
-            infoManager.SetManeuver(MosquitoBehaviour.GetRotationSpeed() / MaxManeuver);
-            infoManager.SetDamage(MosquitoBehaviour.GetDamage() / MaxDamage);
+            infoManager.SetManeuver((MosquitoBehaviour.GetRotationSpeed() - baseRotationSpeed) /
+                                    (MaxManeuver - baseRotationSpeed));
+            infoManager.SetDamage((MosquitoBehaviour.GetDamage() - baseDamage) /
+                                  (MaxDamage - baseDamage));
             infoManager.Start();
         }
 
@@ -177,7 +188,7 @@ namespace _MSQT.Player.Scripts
 
         private void OnCollisionEnter(Collision other)
         {
-            MosquitoBehaviour = MosquitoBehaviour.GetPreviousDecorator();
+            StartCoroutine(GetHurt());
             
             // Reflect the current velocity vector on contact normal
             Vector3 bounceDirection = Vector3.Reflect(_currentVelocity.normalized, other.GetContact(0).normal);
@@ -189,13 +200,13 @@ namespace _MSQT.Player.Scripts
             // Optionally zero angular velocity to prevent spinning
             _rigidbody.angularVelocity = Vector3.zero;
             _rigidbody.linearVelocity = Vector3.zero;
-
-
-            StartCoroutine(GetHurt());
         }
 
         private IEnumerator GetHurt()
         {
+            MosquitoBehaviour = MosquitoBehaviour.GetPreviousDecorator();
+            GameEvents.LostPowerUp?.Invoke();
+            
             float targetHealth = Health - 10f;
             float elapsedTime = 0f;
             while (elapsedTime < 0.5f)

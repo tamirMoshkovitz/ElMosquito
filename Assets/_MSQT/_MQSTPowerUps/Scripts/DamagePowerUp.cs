@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _MSQT._MQSTPowerUps.Scripts
 {
-    public class DamagePowerUp: _MSQTPowerUps<DamageDecorator>
+    public class DamagePowerUp: MSQTPowerUps<DamageDecorator>
     {
         private void Awake()
         {

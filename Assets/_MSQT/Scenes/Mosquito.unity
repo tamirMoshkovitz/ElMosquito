@@ -38610,6 +38610,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1580156617039374390, guid: e3dd6eb4b48f44e6cb41f2b5ad85cc69, type: 3}
+      propertyPath: baseRotationSpeed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580156617039374390, guid: e3dd6eb4b48f44e6cb41f2b5ad85cc69, type: 3}
       propertyPath: infoManager.hpBar.bar
       value: 
       objectReference: {fileID: 873293269}
