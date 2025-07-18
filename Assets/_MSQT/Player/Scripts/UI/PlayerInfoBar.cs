@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace _MSQT.Player.Scripts.UI
@@ -25,7 +26,7 @@ namespace _MSQT.Player.Scripts.UI
         /// </summary>
         /// <param name="newValue"></param>
         /// <returns>true if the new value is set (happends only if it is significant enough)</returns>
-        public bool SetValue(float newValue)
+        public bool TrySetValue(float newValue)
         {
             float difference = newValue - _targetValue;
             _targetValue = newValue;
@@ -39,7 +40,7 @@ namespace _MSQT.Player.Scripts.UI
             return _targetValue;
         }
         
-        public void UpdateBarNoLerp()
+        public void Start()
         {
             if (bar)
             {
@@ -48,7 +49,7 @@ namespace _MSQT.Player.Scripts.UI
             }
         }
         
-        public void AddToBarNoLerp(float value)
+        public void UpdateBar(float value)
         {
             float clampedValue = Mathf.Clamp01(value);
 
@@ -58,23 +59,23 @@ namespace _MSQT.Player.Scripts.UI
             _startWidth = targetWidth;
         }
 
-        // public void UpdateBar(float deltaTime) // called in update by the PlayerInfoManager
-        // {
-        //     if (bar)
-        //     {
-        //         float targetWidth = Mathf.Clamp(_targetValue * _fullWidth, 0f, _fullWidth);
-        //
-        //         _lerpTimer += deltaTime;
-        //         float t = lerpDuration > 0 ? Mathf.Clamp01(_lerpTimer / lerpDuration) : 1f;
-        //
-        //         float newWidth = Mathf.Lerp(_startWidth, targetWidth, t);
-        //         bar.sizeDelta = new Vector2(newWidth, bar.sizeDelta.y);
-        //
-        //         if (t >= 1f)
-        //         {
-        //             _lerpTimer = 0f;
-        //         }
-        //     }
-        // }
+        public IEnumerator UpdateLerp(float value)
+        {
+            if (Mathf.Approximately(value, _targetValue)) yield break;
+            
+            float timer = 0;
+            float targetWidth = Mathf.Clamp(value * _fullWidth, 0f, _fullWidth);
+            while (timer < lerpDuration)
+            {
+                timer += Time.deltaTime;
+                float t = Mathf.Clamp01(timer / lerpDuration);
+                float newWidth = Mathf.Lerp(_startWidth, targetWidth, t);
+                bar.sizeDelta = new Vector2(newWidth, bar.sizeDelta.y);
+                yield return null;
+            }
+            bar.sizeDelta = new Vector2(targetWidth, bar.sizeDelta.y);
+            _startWidth = targetWidth;
+            _targetValue = value;
+        }
     }
 }

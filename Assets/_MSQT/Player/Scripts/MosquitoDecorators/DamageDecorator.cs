@@ -27,7 +27,7 @@ namespace _MSQT.Player.Scripts.MosquitoDecorators
 
         public IMosquitoDecorator GetPreviousDecorator()
         {
-            return _previousDecorator.GetPreviousDecorator();
+            return _previousDecorator;
         }
 
         public float UpdateHP(float deltaTime)

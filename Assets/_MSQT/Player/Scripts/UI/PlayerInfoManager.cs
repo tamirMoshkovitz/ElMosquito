@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -23,24 +26,24 @@ namespace _MSQT.Player.Scripts.UI
 
         public void Start()
         {
-            hpBar.UpdateBarNoLerp();
-            maneuverBar.UpdateBarNoLerp();
-            damageBar.UpdateBarNoLerp();
+            hpBar.Start();
+            maneuverBar.Start();
+            damageBar.Start();
         }
 
         public void SetHP(float value)
         {
-            _hpChanged = hpBar.SetValue(value);
+            _hpChanged = hpBar.TrySetValue(value);
         }
 
         public void SetManeuver(float value)
         {
-            _maneuverChanged = maneuverBar.SetValue(value);
+            _maneuverChanged = maneuverBar.TrySetValue(value);
         }
 
         public void SetDamage(float value)
         {
-            _damageChanged = damageBar.SetValue(value);
+            _damageChanged = damageBar.TrySetValue(value);
         }
         
         private void OnValidate()
@@ -53,9 +56,19 @@ namespace _MSQT.Player.Scripts.UI
                 Debug.LogError($"{nameof(damageBar)} is not assigned in PlayerInfoManager.");
         }
         
-        public void UpdateHPNoLerp(float value)
+        public void UpdateHPBar(float value)
         {
-            hpBar.AddToBarNoLerp(value);
+            hpBar.UpdateBar(value);
+        }
+
+        public IEnumerator UpdateDamageBar(float value)
+        {
+            return damageBar.UpdateLerp(value);
+        }
+        
+        public IEnumerator UpdateManeuverBar(float value)
+        {
+            return maneuverBar.UpdateLerp(value);
         }
     }
 }

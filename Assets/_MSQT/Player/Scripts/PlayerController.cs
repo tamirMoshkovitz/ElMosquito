@@ -35,11 +35,27 @@ namespace _MSQT.Player.Scripts
             get => _mosquitoBehaviour;
             set
             {
+                float oldDamage = _mosquitoBehaviour?.GetDamage() ?? 0f;
+                float oldRotationSpeed = _mosquitoBehaviour?.GetRotationSpeed() ?? 0f;
+                
                 _mosquitoBehaviour = value;
+                
                 // if Maneuver is high, add speed
                 if (_mosquitoBehaviour.GetRotationSpeed() >= MaxManeuver * .9f)
                 {
                     _mosquitoBehaviour = new SpeedDecorator(_mosquitoBehaviour);
+                }
+
+                float newDamage = _mosquitoBehaviour.GetDamage();
+                if (!Mathf.Approximately(oldDamage, newDamage))
+                {
+                    StartCoroutine(infoManager.UpdateDamageBar(newDamage / MaxDamage));
+                }
+                
+                float newRotationSpeed = _mosquitoBehaviour.GetRotationSpeed();
+                if (!Mathf.Approximately(oldRotationSpeed, newRotationSpeed))
+                {
+                    StartCoroutine(infoManager.UpdateManeuverBar(newRotationSpeed / MaxManeuver));
                 }
             }
         }
@@ -71,7 +87,7 @@ namespace _MSQT.Player.Scripts
         {
             _rigidbody = GetComponent<Rigidbody>();
             _playerInput = GetComponent<PlayerInput>();
-            MosquitoBehaviour = new BasicMosquitoBehavior(moveSpeed, rotationSpeed, baseDamage);
+            _mosquitoBehaviour = new BasicMosquitoBehavior(moveSpeed, rotationSpeed, baseDamage);
             infoManager.Awake();
         }
 
@@ -120,7 +136,7 @@ namespace _MSQT.Player.Scripts
         void Update()
         {
             Health = Mathf.Clamp(Health + MosquitoBehaviour.UpdateHP(Time.deltaTime), 0f, MaxHealth);
-            infoManager.UpdateHPNoLerp(Health / MaxHealth);
+            infoManager.UpdateHPBar(Health / MaxHealth);
         }
 
         void FixedUpdate()
@@ -185,7 +201,7 @@ namespace _MSQT.Player.Scripts
             {
                 elapsedTime += Time.deltaTime;
                 Health = Mathf.Lerp(Health, targetHealth, elapsedTime / 0.5f);
-                infoManager.UpdateHPNoLerp(Health / MaxHealth);
+                infoManager.UpdateHPBar(Health / MaxHealth);
                 yield return null;
             }
             Health = targetHealth;
