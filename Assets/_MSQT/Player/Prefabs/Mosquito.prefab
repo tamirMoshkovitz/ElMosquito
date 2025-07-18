@@ -1515,9 +1515,10 @@ GameObject:
   - component: {fileID: 1580156617039374390}
   - component: {fileID: 4869710979205195539}
   - component: {fileID: 4073585733556472469}
+  - component: {fileID: 4887916230268358244}
   m_Layer: 0
   m_Name: Mosquito
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1574,12 +1575,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2944a453ebd024f66853c34bd8b98089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  verticalSpeed: 3
-  rotationSpeed: 60
-  fixedForwardSpeed: 10
-  maxRollAngle: 30
-  rollSmooth: 5
+  moveSpeed: 2
+  fixedForwardSpeed: 1
+  moveAcceleration: 3
+  rotationSpeed: 150
+  inputRotationScale: 0.5
+  autoLevelSpeed: 2
+  baseDamage: 10
+  infoManager:
+    hpBar:
+      bar: {fileID: 0}
+      lerpDuration: 0.5
+    maneuverBar:
+      bar: {fileID: 0}
+      lerpDuration: 0.5
+    damageBar:
+      bar: {fileID: 0}
+      lerpDuration: 0.5
 --- !u!114 &4869710979205195539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,7 +1605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -1632,11 +1644,34 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!136 &4887916230268358244
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387463942416476044}
+  m_Material: {fileID: 13400000, guid: 1b062317d299f495abf9b1bee766a3af, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.07
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.06, z: 0}
 --- !u!1 &3439275585890006343
 GameObject:
   m_ObjectHideFlags: 0
