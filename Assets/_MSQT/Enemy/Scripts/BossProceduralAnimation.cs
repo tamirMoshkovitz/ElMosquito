@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using _MSQT.Core.Scripts;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 namespace _MSQT.Enemy.Scripts
 {
@@ -23,7 +25,10 @@ namespace _MSQT.Enemy.Scripts
         [SerializeField] private Transform leftElbowHint;
         [SerializeField] private TwoBoneIKConstraint leftArmIK;
 
+        [FormerlySerializedAs("head")] [SerializeField] private Transform reachZoneRoot;
         [SerializeField] private Transform head;
+        [SerializeField] private MultiAimConstraint headLookConstraint;
+        [SerializeField] private Transform headLookTarget;
         
         [Header("Cinemachine Path")]
         [SerializeField] private CinemachinePathBase rightIkPath;
@@ -31,24 +36,36 @@ namespace _MSQT.Enemy.Scripts
 
 
         private Coroutine attackCoroutine;
-        private bool isAttacking = false;
+        private Quaternion defaultHeadRotation;
+
+        private void Awake()
+        {
+            defaultHeadRotation = head.rotation;
+        }
 
         private void Update()
         {
             if (!targetObject || !(rightIkPath is CinemachineSmoothPath smoothPath) || !(leftIkPath is CinemachineSmoothPath leftSmoothPath))
                 return;
 
-            float distance = Vector3.Distance(head.position, targetObject.position);
-            if (distance <= reachDistance && !isAttacking)
+            float distance = Vector3.Distance(reachZoneRoot.position, targetObject.position);
+            if (distance <= reachDistance && attackCoroutine == null)
             {
+                Vector3 directionToPlayer = targetObject.position - head.position;
+                directionToPlayer.y = 0f;
+                if (directionToPlayer != Vector3.zero)
+                {
+                    Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
+                    head.rotation = Quaternion.Slerp(head.rotation, lookRotation, Time.deltaTime * 5f);
+                }
+                headLookTarget.position = targetObject.position;
+                headLookConstraint.weight = 1f;
                 attackCoroutine = StartCoroutine(PerformAttack(smoothPath, leftSmoothPath));
             }
         }
 
         private IEnumerator PerformAttack(CinemachineSmoothPath smoothPath, CinemachineSmoothPath leftSmoothPath)
         {
-            rootRig.weight = 1;
-            isAttacking = true;
             rightIkPath.gameObject.SetActive(true);
             leftIkPath.gameObject.SetActive(true);
 
@@ -70,11 +87,12 @@ namespace _MSQT.Enemy.Scripts
                 leftSmoothPath.m_Waypoints[1].position = localTargetPosLeft;
                 leftSmoothPath.InvalidateDistanceCache();
             }
-
+            
+            rootRig.weight = 1;
             rightArmIK.weight = 1f;
             leftArmIK.weight = 1f;
 
-            float duration = .5f; // how long it takes to move along the path
+            float duration = .3f; // how long it takes to move along the path
             float elapsed = 0f;
 
             while (elapsed < duration)
@@ -95,18 +113,37 @@ namespace _MSQT.Enemy.Scripts
 
             rightArmIK.weight = 0f;
             leftArmIK.weight = 0f;
-            isAttacking = false;
             rightIkPath.gameObject.SetActive(false);
             leftIkPath.gameObject.SetActive(false);
             rootRig.weight = 0;
+            StartCoroutine(RestoreHeadRotation());
+            attackCoroutine = null;
+        }
+        
+        private IEnumerator RestoreHeadRotation()
+        {
+            float duration = 0.5f;
+            float elapsed = 0f;
+            Quaternion initialRotation = head.rotation;
+
+            while (elapsed < duration)
+            {
+                float t = elapsed / duration;
+                head.rotation = Quaternion.Slerp(initialRotation, defaultHeadRotation, t);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            head.rotation = defaultHeadRotation;
+            headLookConstraint.weight = 0f;
         }
 
         
         void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.green;
-            if (head)
-                Gizmos.DrawWireSphere(head.position, reachDistance);
+            if (reachZoneRoot)
+                Gizmos.DrawWireSphere(reachZoneRoot.position, reachDistance);
         }
     }
 }
