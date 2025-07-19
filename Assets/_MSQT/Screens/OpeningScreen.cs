@@ -32,7 +32,7 @@ namespace _MSQT.Screens
         
         public void PlayGame()
         {
-            SceneLoader.LoadScene(SceneName.Game);
+            SceneLoader.LoadNextScene();
         }
 
         public void QuitGame()

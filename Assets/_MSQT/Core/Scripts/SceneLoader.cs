@@ -5,9 +5,10 @@ namespace _MSQT.Core.Scripts
     public enum SceneName
     {
         Opening = 0,
-        Game = 1,
-        WinEnding = 2,
-        LoseEnding = 3,
+        Tips = 1,
+        Game = 2,
+        WinEnding = 3,
+        LoseEnding = 4,
     }
 
     public static class SceneLoader

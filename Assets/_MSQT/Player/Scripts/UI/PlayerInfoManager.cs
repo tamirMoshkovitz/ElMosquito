@@ -13,9 +13,6 @@ namespace _MSQT.Player.Scripts.UI
         [SerializeField] private PlayerInfoBar hpBar;
         [SerializeField] private PlayerInfoBar maneuverBar;
         [SerializeField] private PlayerInfoBar damageBar;
-        private bool _hpChanged;
-        private bool _maneuverChanged;
-        private bool _damageChanged;
         
         public void Awake()
         {
@@ -33,17 +30,17 @@ namespace _MSQT.Player.Scripts.UI
 
         public void SetHP(float value)
         {
-            _hpChanged = hpBar.TrySetValue(value);
+            hpBar.TrySetValue(value);
         }
 
         public void SetManeuver(float value)
         {
-            _maneuverChanged = maneuverBar.TrySetValue(value);
+            maneuverBar.TrySetValue(value);
         }
 
         public void SetDamage(float value)
         {
-            _damageChanged = damageBar.TrySetValue(value);
+            damageBar.TrySetValue(value);
         }
         
         private void OnValidate()
@@ -59,6 +56,11 @@ namespace _MSQT.Player.Scripts.UI
         public void UpdateHPBar(float value)
         {
             hpBar.UpdateBar(value);
+        }
+        
+        public IEnumerator UpdateHpBarWithLerp(float value)
+        {
+            return hpBar.UpdateLerp(value);
         }
 
         public IEnumerator UpdateDamageBar(float value)

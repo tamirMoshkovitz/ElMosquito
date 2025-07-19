@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace _MSQT.Core.Audio.Scripts
 {
+    // This Script Was Given To Me By A Classmate
     [RequireComponent(typeof(Camera))]
     public class CameraSizeAdjuster : MonoBehaviour
     {
@@ -54,8 +55,6 @@ namespace _MSQT.Core.Audio.Scripts
 
                 _cam.rect = rect;
             }
-
-            Debug.Log($"Updated camera viewport to maintain aspect ratio: {TargetAspect:F2}");
         }
     }
 }
