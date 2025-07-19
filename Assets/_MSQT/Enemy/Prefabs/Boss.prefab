@@ -2620,8 +2620,8 @@ MonoBehaviour:
   - position: {x: 0, y: 0, z: -5}
     tangent: {x: 1, y: 0, z: 0}
     roll: 0
-  - position: {x: 0, y: 0, z: 2.5994368}
-    tangent: {x: -2.7488203, y: -6.520588, z: 4.052623}
+  - position: {x: 0, y: 0, z: 1.6144978}
+    tangent: {x: -2.7488203, y: -6.994998, z: 9.3464775}
     roll: 0
 --- !u!1 &9177105040732929735
 GameObject:
