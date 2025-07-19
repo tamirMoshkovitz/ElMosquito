@@ -610,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSize: 10
+  dontDestroyOnLoad: 1
 --- !u!1 &424422228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2495175235383764995, guid: f3f65918ec6274483b01449ded1a17c6, type: 3}
@@ -1970,6 +1971,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mosquito
       objectReference: {fileID: 0}
+    - target: {fileID: 3387463942416476044, guid: e3dd6eb4b48f44e6cb41f2b5ad85cc69, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5327106479127767603, guid: e3dd6eb4b48f44e6cb41f2b5ad85cc69, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.450005
@@ -2351,6 +2356,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 402094408551140075, guid: a2cf7360f4d11499db4a9d3f1e5a9805, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
+    - target: {fileID: 402094408551140075, guid: a2cf7360f4d11499db4a9d3f1e5a9805, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06604576
+      objectReference: {fileID: 0}
+    - target: {fileID: 402094408551140075, guid: a2cf7360f4d11499db4a9d3f1e5a9805, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.11322023
+      objectReference: {fileID: 0}
     - target: {fileID: 551411317400905178, guid: a2cf7360f4d11499db4a9d3f1e5a9805, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.683224

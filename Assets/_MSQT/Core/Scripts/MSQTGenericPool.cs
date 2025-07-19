@@ -7,6 +7,7 @@ namespace _MSQT.Audio.Scripts
     public class MSQTGenericPool<T>: MSQTMono where T: MSQTMono, IMSQTPoolable
     {
         [SerializeField] private int initialSize = 10;
+        [SerializeField] private bool dontDestroyOnLoad = true;
         
         private List<T> _pool;
         public static MSQTGenericPool<T> Instance { get; private set; }
@@ -16,7 +17,8 @@ namespace _MSQT.Audio.Scripts
             if (Instance == null)
             {
                 Instance = this;
-                DontDestroyOnLoad(gameObject);
+                if (dontDestroyOnLoad)
+                    DontDestroyOnLoad(gameObject);
             }
             else
             {
