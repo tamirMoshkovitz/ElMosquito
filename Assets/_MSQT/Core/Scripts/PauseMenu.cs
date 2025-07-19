@@ -75,7 +75,6 @@ namespace _MSQT.Core.Scripts
 
         public void QuitGame()
         {
-            AudioListener.pause = false;
             Application.Quit();
         }
     }
