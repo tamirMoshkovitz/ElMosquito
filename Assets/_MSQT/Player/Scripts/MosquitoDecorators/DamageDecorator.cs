@@ -4,6 +4,7 @@ namespace _MSQT.Player.Scripts.MosquitoDecorators
 {
     public class DamageDecorator: IMosquitoDecorator
     {
+        public static readonly float DamageIncreaseParameter = 1.5f;
         private readonly IMosquitoDecorator _previousDecorator;
         public DamageDecorator(IMosquitoDecorator previousDecorator)
         {
@@ -22,7 +23,7 @@ namespace _MSQT.Player.Scripts.MosquitoDecorators
 
         public float GetDamage()
         {
-            return _previousDecorator.GetDamage() * 1.5f; // Increase damage by 50%
+            return _previousDecorator.GetDamage() * DamageIncreaseParameter; // Increase damage by 50%
         }
 
         public IMosquitoDecorator GetPreviousDecorator()

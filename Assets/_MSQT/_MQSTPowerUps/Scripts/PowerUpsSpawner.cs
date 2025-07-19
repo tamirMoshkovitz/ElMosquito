@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 
 namespace _MSQT._MQSTPowerUps.Scripts
 {
+    // Singleton class for spawning and managing power-ups in the game
     public class PowerUpsSpawner : MSQTMono
     {
         [Serializable]

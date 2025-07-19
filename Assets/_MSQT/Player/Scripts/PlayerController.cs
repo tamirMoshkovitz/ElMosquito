@@ -71,9 +71,9 @@ namespace _MSQT.Player.Scripts
 
         private float _health = 100f;
         private const float MaxHealth = 100f;
-        private const float MaxManeuver = 337.5f;
+        private const float MaxManeuver = 216f;
 
-        private const float MaxDamage = 50f;
+        private const float MaxDamage = 33.75f;
 
         public float Health
         {
@@ -90,15 +90,16 @@ namespace _MSQT.Player.Scripts
             _rigidbody = GetComponent<Rigidbody>();
             _playerInput = GetComponent<PlayerInput>();
             
-            // the game starts with a some power-ups
-            baseRotationSpeed /= 1.5f;
-            baseDamage /= 1.5f;
+            // the game starts with a some power-ups (splited between Awake and Start for UI initialization)
+            baseRotationSpeed /= ManeuverDecorator.ManeuverIncreaseParameter;
+            baseDamage /= DamageDecorator.DamageIncreaseParameter;
             _mosquitoBehaviour = new BasicMosquitoBehavior(moveSpeed, baseRotationSpeed, baseDamage);   
             infoManager.Awake();
         }
 
         private void Start()
         {
+            // the game starts with a some power-ups (splited between Awake and Start for UI initialization)
             MosquitoBehaviour = new ManeuverDecorator(_mosquitoBehaviour);
             MosquitoBehaviour = new DamageDecorator(_mosquitoBehaviour);
 

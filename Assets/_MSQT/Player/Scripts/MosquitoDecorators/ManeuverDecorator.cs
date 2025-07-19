@@ -7,6 +7,7 @@ namespace _MSQT.Player.Scripts.MosquitoBehaviors
     /// </summary>
     public class ManeuverDecorator: IMosquitoDecorator
     {
+        public static readonly float ManeuverIncreaseParameter = 1.2f;
         private readonly IMosquitoDecorator _previousBehaviour;
         
         public ManeuverDecorator(IMosquitoDecorator mosquitoBehaviour)
@@ -20,7 +21,7 @@ namespace _MSQT.Player.Scripts.MosquitoBehaviors
 
         public float GetRotationSpeed()
         {
-            return _previousBehaviour.GetRotationSpeed() * 1.5f; // Increase rotation speed by 50%
+            return _previousBehaviour.GetRotationSpeed() * ManeuverIncreaseParameter; // Increase rotation speed by 50%
         }
 
         public float GetDamage()
