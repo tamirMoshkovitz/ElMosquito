@@ -1,5 +1,3 @@
-using System;
-using _MSQT.Audio.Scripts;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,19 +13,13 @@ namespace _MSQT.Core.Scripts
         [SerializeField] private PlayerInput playerInput;
         [SerializeField] private Button resumeButton;
         
-        private static bool _gameIsPaused = false;
+        private static bool _gameIsPaused;
         private InputSystem_Actions _actions;
 
         private void Awake()
         {
             _actions = new InputSystem_Actions();
         }
-        
-        private void ChangeVolume(float value)
-        {
-            AudioManager.Instance.SetMasterVolume(value);
-        }
-        
 
         private void OnEnable()
         {
@@ -37,6 +29,7 @@ namespace _MSQT.Core.Scripts
 
         private void OnDisable()
         {
+            AudioListener.pause = false;
             _actions.UI.Pause.performed -= OnPausePerformed;
             _actions.UI.Disable();
         }
@@ -54,6 +47,7 @@ namespace _MSQT.Core.Scripts
         {
             Time.timeScale = 1f;
             _gameIsPaused = false;
+            AudioListener.pause = false;
             pauseMenuUI.SetActive(false);
             playerInput.SwitchCurrentActionMap("Player");
         }
@@ -62,6 +56,7 @@ namespace _MSQT.Core.Scripts
         {
             Time.timeScale = 0f;
             _gameIsPaused = true;
+            AudioListener.pause = true;
             pauseMenuUI.SetActive(true);
             EventSystem.current.SetSelectedGameObject(resumeButton.gameObject);
             playerInput.SwitchCurrentActionMap("UI");
@@ -69,6 +64,7 @@ namespace _MSQT.Core.Scripts
 
         public void LoadStartMenu()
         {
+            AudioListener.pause = false;
             Time.timeScale = 1f;
             _gameIsPaused = false;
             pauseMenuUI.SetActive(false);
@@ -79,6 +75,7 @@ namespace _MSQT.Core.Scripts
 
         public void QuitGame()
         {
+            AudioListener.pause = false;
             Application.Quit();
         }
     }
