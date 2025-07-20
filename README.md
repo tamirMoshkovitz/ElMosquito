@@ -1,9 +1,10 @@
 # 🦟 EL MOSQUITO
 _Advanced Unity Course Project (HUJI × Bezalel, 2025)_
-
+---
+![Gameplay](Assets/_MSQT/ScreenShots/GamePlayScreenShot.png)
 ---
 
-## 🎮 Game Description
+## Game Description
 
 You are not just a mosquito — you're **the** mosquito.
 
@@ -12,14 +13,14 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 
 ---
 
-## 📽️ Videos
+## Videos
 
-- 🎮 [Gameplay Demo](https://youtu.be/Kp4RKf0lAo8)  
-- 🛠️ [Technical Overview](#)
+- [Gameplay Demo](https://youtu.be/Kp4RKf0lAo8)  
+- [Technical Overview](#)
 
 ---
 
-## 🧠 Boss Design: 2 Phases of Pain
+## Boss Design: 2 Phases of Pain
 
 1. **Phase 1 – The Seated Slapper**  
    - He sits. You bite. He slaps.  
@@ -33,7 +34,7 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 
 ---
 
-## 🎮 Controls
+## Controls
 (the game is made for a gamepad)
 
 | Action       | Input                |
@@ -43,37 +44,33 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 
 ---
 
-## 🔧 Notable Systems
+## Notable Systems
 
-### 🎨 Procedural Art  
-- Fully shader-based mosquito and boss visuals (excluding title & end screen)  
-- Signed Distance Fields (SDF) for organic animation
-
-### 🎯 InverseKinematic Slap System  
+### InverseKinematic Slap System  
 - Boss arms use **Cinemachine path + TwoBoneIK**  
 - Attacks trigger based on player distance and a random reaction timing
 
-### 🧪 Decorator-Based Mosquito Powers  
+### Decorator-Based Mosquito Powers  
 - Speed, Maneuver, Damage buffs stack and modify base behavior  
 - Reversible stack allows power-up loss on hit
 
 ---
 
-## ▶️ Play the Game
+## ▶ Play the Game
 
 ----------
 [ItchIO page](https://tamirmoshko.itch.io/el-mosquito)
 
 ---
 
-## 🧾 Credits
+## Credits
 
 - **Developer & Designer:** Tamir Moshkovitz  
 - **Institution:** Hebrew University & Bezalel Academy  
 - **Course:** Advanced Unity (2025 Minor in Game Design)
 
 ---
-## 🎵 Music Credits
+## Music Credits
 
 ### Opening Scene:
 
