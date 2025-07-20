@@ -1,34 +1,32 @@
-using _MSQT.Player.Scripts.MosquitoBehaviors;
-
 namespace _MSQT.Player.Scripts.MosquitoDecorators
 {
     public class BasicMosquitoBehavior: IMosquitoDecorator
     {
-        private protected float MovementSpeed;
-        private protected float RotationSpeed;
-        private protected float Damage;
-        private protected float HealingSpeed = .5f;
-        
+        private readonly float _movementSpeed;
+        private readonly float _rotationSpeed;
+        private readonly float _damage;
+        private const float HealingSpeed = .5f;
+
         public BasicMosquitoBehavior(float movementSpeed, float rotationSpeed, float damage)
         {
-            MovementSpeed = movementSpeed;
-            RotationSpeed = rotationSpeed;
-            Damage = damage;
+            _movementSpeed = movementSpeed;
+            _rotationSpeed = rotationSpeed;
+            _damage = damage;
         }
 
         public virtual float GetMovementSpeed()
         {
-            return MovementSpeed;
+            return _movementSpeed;
         }
         
         public virtual float GetRotationSpeed()
         {
-            return RotationSpeed;
+            return _rotationSpeed;
         }
         
         public virtual float GetDamage()
         {
-            return Damage;
+            return _damage;
         }
 
         public IMosquitoDecorator GetPreviousDecorator()

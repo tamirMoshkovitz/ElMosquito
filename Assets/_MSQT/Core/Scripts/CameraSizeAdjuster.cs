@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _MSQT.Core.Audio.Scripts
+namespace _MSQT.Core.Scripts
 {
     // This Script Was Given To Me By A Classmate
     [RequireComponent(typeof(Camera))]

@@ -6,8 +6,8 @@ namespace _MSQT.Enemy.Scripts
 {
     public class BossBehavior : MSQTMono
     {
-        private static readonly int standUpHash = Animator.StringToHash("Stand Up");
-        private static readonly int SpeedHash = Animator.StringToHash("Speed");
+        private static readonly int kStandUpHash = Animator.StringToHash("Stand Up");
+        private static readonly int kSpeedHash = Animator.StringToHash("Speed");
         [SerializeField] private RectTransform healthBar;
         [SerializeField] private Transform playerTransform;
         [SerializeField] private float chaseSpeed = 5f;
@@ -39,49 +39,57 @@ namespace _MSQT.Enemy.Scripts
             // Approach a predefined target before starting chase
             if (!_isChasing && _health <= 33f && !_hasReachedApproachTarget)
             {
-                Vector3 targetPos = new Vector3(approachTarget.position.x, transform.position.y, approachTarget.position.z);
-                Vector3 moveDir = targetPos - transform.position;
+                StandUpBeforeChase();
+            }
 
-                if (moveDir.magnitude < 0.1f)
-                {
-                    _hasReachedApproachTarget = true;
-                    StartCoroutine(StartChaseAfterDelay());
-                }
-                else
-                {
-                    transform.position += moveDir.normalized * (chaseSpeed * Time.deltaTime);
-                    Quaternion face = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, face, rotationSpeed * Time.deltaTime);
-                }
+            else if (_isChasing && playerTransform && !_isTurning)
+            {
+                ChasePlayer();
+            }
+        }
 
+        private void StandUpBeforeChase()
+        {
+            Vector3 targetPos = new Vector3(approachTarget.position.x, transform.position.y, approachTarget.position.z);
+            Vector3 moveDir = targetPos - transform.position;
+
+            if (moveDir.magnitude < 0.1f)
+            {
+                _hasReachedApproachTarget = true;
+                StartCoroutine(StartChaseAfterDelay());
+            }
+            else
+            {
+                transform.position += moveDir.normalized * (chaseSpeed * Time.deltaTime);
+                Quaternion face = Quaternion.LookRotation(moveDir.normalized, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, face, rotationSpeed * Time.deltaTime);
+            }
+        }
+
+        private void ChasePlayer()
+        {
+            Vector3 targetPosition = new Vector3(playerTransform.position.x, transform.position.y, transform.position.z);
+            Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0f, 0f).normalized;
+
+            // Detect direction change and start turn coroutine
+            if (direction.x != 0 && !Mathf.Approximately(Mathf.Sign(direction.x), Mathf.Sign(_lastDirectionX)))
+            {
+                _animator.SetFloat(kSpeedHash, 0f);
+                _lastDirectionX = direction.x;
+                StartCoroutine(TurnAndPause(direction));
                 return;
             }
 
-            if (_isChasing && playerTransform && !_isTurning)
+            // Move boss
+            transform.position += direction * (chaseSpeed * Time.deltaTime);
+            _animator.SetFloat(kSpeedHash, Mathf.Abs(direction.x));
+
+            // Smoothly rotate to face direction
+            if (direction.x != 0)
             {
-                Vector3 targetPosition = new Vector3(playerTransform.position.x, transform.position.y, transform.position.z);
-                Vector3 direction = new Vector3(targetPosition.x - transform.position.x, 0f, 0f).normalized;
-
-                // Detect direction change and start turn coroutine
-                if (direction.x != 0 && !Mathf.Approximately(Mathf.Sign(direction.x), Mathf.Sign(_lastDirectionX)))
-                {
-                    _animator.SetFloat(SpeedHash, 0f);
-                    _lastDirectionX = direction.x;
-                    StartCoroutine(TurnAndPause(direction));
-                    return;
-                }
-
-                // Move boss
-                transform.position += direction * (chaseSpeed * Time.deltaTime);
-                _animator.SetFloat(SpeedHash, Mathf.Abs(direction.x));
-
-                // Smoothly rotate to face direction
-                if (direction.x != 0)
-                {
-                    Quaternion targetRotation = Quaternion.Euler(0f, direction.x > 0 ? 90f : -90f, 0f);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,
-                        rotationSpeed * Time.deltaTime);
-                }
+                Quaternion targetRotation = Quaternion.Euler(0f, direction.x > 0 ? 90f : -90f, 0f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation,
+                    rotationSpeed * Time.deltaTime);
             }
         }
 
@@ -95,10 +103,9 @@ namespace _MSQT.Enemy.Scripts
         }
 
 
-
         private IEnumerator StartChaseAfterDelay()
         {
-            _animator.SetTrigger(standUpHash);
+            _animator.SetTrigger(kStandUpHash);
             yield return new WaitForSeconds(5f);
             _isChasing = true;
         }

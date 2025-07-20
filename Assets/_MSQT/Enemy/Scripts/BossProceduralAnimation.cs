@@ -35,12 +35,12 @@ namespace _MSQT.Enemy.Scripts
         [SerializeField] private CinemachinePathBase leftIkPath;
 
 
-        private Coroutine attackCoroutine;
-        private Quaternion defaultHeadRotation;
+        private Coroutine _attackCoroutine;
+        private Quaternion _defaultHeadRotation;
 
         private void Awake()
         {
-            defaultHeadRotation = head.rotation;
+            _defaultHeadRotation = head.rotation;
         }
 
         private void Update()
@@ -49,7 +49,7 @@ namespace _MSQT.Enemy.Scripts
                 return;
 
             float distance = Vector3.Distance(reachZoneRoot.position, targetObject.position);
-            if (distance <= reachDistance && attackCoroutine == null)
+            if (distance <= reachDistance && _attackCoroutine == null)
             {
                 Vector3 directionToPlayer = targetObject.position - head.position;
                 directionToPlayer.y = 0f;
@@ -60,7 +60,7 @@ namespace _MSQT.Enemy.Scripts
                 }
                 headLookTarget.position = targetObject.position;
                 headLookConstraint.weight = 1f;
-                attackCoroutine = StartCoroutine(PerformAttack(smoothPath, leftSmoothPath));
+                _attackCoroutine = StartCoroutine(PerformAttack(smoothPath, leftSmoothPath));
             }
         }
 
@@ -117,7 +117,7 @@ namespace _MSQT.Enemy.Scripts
             leftIkPath.gameObject.SetActive(false);
             rootRig.weight = 0;
             StartCoroutine(RestoreHeadRotation());
-            attackCoroutine = null;
+            _attackCoroutine = null;
         }
         
         private IEnumerator RestoreHeadRotation()
@@ -129,12 +129,12 @@ namespace _MSQT.Enemy.Scripts
             while (elapsed < duration)
             {
                 float t = elapsed / duration;
-                head.rotation = Quaternion.Slerp(initialRotation, defaultHeadRotation, t);
+                head.rotation = Quaternion.Slerp(initialRotation, _defaultHeadRotation, t);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            head.rotation = defaultHeadRotation;
+            head.rotation = _defaultHeadRotation;
             headLookConstraint.weight = 0f;
         }
 

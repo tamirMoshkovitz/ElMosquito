@@ -1,49 +1,20 @@
-using _MSQT.Player.Scripts.MosquitoBehaviors;
-
 namespace _MSQT.Player.Scripts.MosquitoDecorators
 {
-    public class FasterHealingDecorator: IMosquitoDecorator
+    public class FasterHealingDecorator: AbstractPowerUpDecorator
     {
-        private readonly IMosquitoDecorator _previousDecorator;
-        private float _healingSpeed;
+        private readonly float _healingSpeed;
         
-        public FasterHealingDecorator(IMosquitoDecorator previousDecorator)
+        public FasterHealingDecorator(IMosquitoDecorator previousDecorator) : base(previousDecorator)
         {
-            _previousDecorator = previousDecorator;
             _healingSpeed = previousDecorator.GetHealingSpeed() + 1f;
         }
 
-        public float GetMovementSpeed()
+        public override float UpdateHP(float deltaTime)
         {
-            return _previousDecorator.GetMovementSpeed();
+            return PreviousDecorator.UpdateHP(deltaTime) * _healingSpeed;
         }
 
-        public float GetRotationSpeed()
-        {
-            return _previousDecorator.GetRotationSpeed();
-        }
-
-        public float GetDamage()
-        {
-            return _previousDecorator.GetDamage();
-        }
-
-        public PlayerController GetPlayer()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public IMosquitoDecorator GetPreviousDecorator()
-        {
-            return _previousDecorator;
-        }
-
-        public float UpdateHP(float deltaTime)
-        {
-            return _previousDecorator.UpdateHP(deltaTime) * _healingSpeed;
-        }
-
-        public float GetHealingSpeed()
+        public override float GetHealingSpeed()
         {
             return _healingSpeed;
         }

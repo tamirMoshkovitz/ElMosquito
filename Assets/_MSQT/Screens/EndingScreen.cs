@@ -10,7 +10,7 @@ namespace _MSQT.Screens
     {
         [SerializeField] private GameObject pauseMenuUI;
         [SerializeField] private Button playAgainButton;
-        [SerializeField] private GameObject camera;
+        [SerializeField] private new GameObject camera;
 
         private InputSystem_Actions _actions;
 
