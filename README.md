@@ -15,7 +15,7 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 
 ## Videos
 
-- [Gameplay Demo](https://youtu.be/Kp4RKf0lAo8)  
+- [Gameplay](https://youtu.be/Kp4RKf0lAo8)  
 - [Technical Overview](#)
 
 ---
