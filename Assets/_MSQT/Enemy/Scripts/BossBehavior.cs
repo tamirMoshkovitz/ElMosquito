@@ -37,7 +37,7 @@ namespace _MSQT.Enemy.Scripts
             healthBar.sizeDelta = new Vector2(clampedHealth * _barSize.x, healthBar.sizeDelta.y);
 
             // Approach a predefined target before starting chase
-            if (!_isChasing && _health < 33f && !_hasReachedApproachTarget)
+            if (!_isChasing && _health <= 33f && !_hasReachedApproachTarget)
             {
                 Vector3 targetPos = new Vector3(approachTarget.position.x, transform.position.y, approachTarget.position.z);
                 Vector3 moveDir = targetPos - transform.position;
