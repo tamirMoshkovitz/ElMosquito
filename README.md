@@ -98,5 +98,3 @@ It is a non-commercial, student project made purely for pedagogical purposes.
 All copyrighted music is used under the assumption of fair educational use,
 
 and no profit or monetization is intended.
-
-> _"Think you're a big-shot mosquito? Let's see you bite this dude until he blacks out. Oh - and yeah - he slaps. Hard."_
