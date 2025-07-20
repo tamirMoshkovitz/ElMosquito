@@ -45,7 +45,7 @@ namespace _MSQT.Player.Scripts
         private Vector3 _currentVelocity;
 
         private float _health = 100f;
-        private bool _canGetHurt = true;
+        private bool _canGetHurtByBoss = true;
         private const float MaxHealth = 100f;
         private const float MaxManeuver = 216f;
 
@@ -205,19 +205,20 @@ namespace _MSQT.Player.Scripts
             {
                 if (other.gameObject.CompareTag("Boss Head") || other.gameObject.CompareTag("Boss Arms"))
                 {
-                    if (other.gameObject.CompareTag("Boss Head"))
-                    {
-                        boss.GetHurt(_mosquitoBehaviour.GetDamage());
-                        StartCoroutine(FiveSecoOfInvulnerability());
-                        return;
-                    }
+                    float damageToBoss = _mosquitoBehaviour.GetDamage();
+                    
                     if (other.gameObject.CompareTag("Boss Arms"))
                     {
-                        boss.GetHurt(_mosquitoBehaviour.GetDamage() / 2); // the arms are less vulnerable
+                        damageToBoss /= 2; // the arms are less vulnerable
+                    }
+                    
+                    boss.GetHurt(damageToBoss);
+                    if (_canGetHurtByBoss)
+                    {
+                        StartCoroutine(GetHurt(33f));
                         StartCoroutine(FiveSecoOfInvulnerability());
                     }
                 } 
-                StartCoroutine(GetHurt(33f));
             }
             else
                 StartCoroutine(GetHurt(15f));
@@ -239,14 +240,13 @@ namespace _MSQT.Player.Scripts
 
         private IEnumerator FiveSecoOfInvulnerability()
         {
-            _canGetHurt = false;
+            _canGetHurtByBoss = false;
             yield return new WaitForSeconds(5f);
-            _canGetHurt = true;
+            _canGetHurtByBoss = true;
         }
 
         private IEnumerator GetHurt(float damage)
         {
-            if (!_canGetHurt) yield break;
             MosquitoBehaviour = MosquitoBehaviour.GetPreviousDecorator();
             GameEvents.LostPowerUp?.Invoke();
             
