@@ -187,7 +187,7 @@ namespace _MSQT.Player.Scripts
             if (_doBoost)
             {
                 _rigidbody.AddForce(transform.forward * (MosquitoBehaviour.GetMovementSpeed() * 50), ForceMode.Acceleration);
-                StartCoroutine(GetHurt(10f));
+                StartCoroutine(GetHurt(10f, false));
                 _doBoost = false;
             }
             else
@@ -249,9 +249,10 @@ namespace _MSQT.Player.Scripts
             _canGetHurtByBoss = true;
         }
 
-        private IEnumerator GetHurt(float damage)
+        private IEnumerator GetHurt(float damage, bool losePowerUp = true)
         {
-            MosquitoBehaviour = MosquitoBehaviour.GetPreviousDecorator();
+            if (losePowerUp)
+                MosquitoBehaviour = MosquitoBehaviour.GetPreviousDecorator();
             GameEvents.LostPowerUp?.Invoke();
             
             float targetHealth = Health - damage;
