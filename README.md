@@ -63,14 +63,20 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 
 ---
 
-## Credits
+### Credits
 
 - **Developer & Designer:** Tamir Moshkovitz  
 - **Institution:** Hebrew University & Bezalel Academy  
-- **Course:** Advanced Unity (2025 Minor in Game Design)
+- **Course:** Advanced Unity (2025 Minor in Game Dev & Design)
+- **Guidance:** Shahar Bar
 
 ---
-## Music Credits
+## Packages
+
+- All imported packages are from the Unity Asset Store
+
+---
+## Music
 
 ### Opening Scene:
 
@@ -98,3 +104,9 @@ It is a non-commercial, student project made purely for pedagogical purposes.
 All copyrighted music is used under the assumption of fair educational use,
 
 and no profit or monetization is intended.
+
+---
+
+\* All of my code is under "Assets/_MSQT"
+
+---
