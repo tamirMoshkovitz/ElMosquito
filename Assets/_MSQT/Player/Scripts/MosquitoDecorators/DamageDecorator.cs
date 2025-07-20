@@ -1,44 +1,13 @@
-using _MSQT.Player.Scripts.MosquitoBehaviors;
-
 namespace _MSQT.Player.Scripts.MosquitoDecorators
 {
-    public class DamageDecorator: IMosquitoDecorator
+    public class DamageDecorator: AbstractPowerUpDecorator
     {
         public static readonly float DamageIncreaseParameter = 1.5f;
-        private readonly IMosquitoDecorator _previousDecorator;
-        public DamageDecorator(IMosquitoDecorator previousDecorator)
-        {
-            _previousDecorator = previousDecorator;
-        }
-        
-        public float GetMovementSpeed()
-        {
-            return _previousDecorator.GetMovementSpeed();
-        }
+        public DamageDecorator(IMosquitoDecorator previousDecorator) : base(previousDecorator) { }
 
-        public float GetRotationSpeed()
+        public override float GetDamage()
         {
-            return _previousDecorator.GetRotationSpeed();
-        }
-
-        public float GetDamage()
-        {
-            return _previousDecorator.GetDamage() * DamageIncreaseParameter; // Increase damage by 50%
-        }
-
-        public IMosquitoDecorator GetPreviousDecorator()
-        {
-            return _previousDecorator;
-        }
-
-        public float UpdateHP(float deltaTime)
-        {
-            return _previousDecorator.UpdateHP(deltaTime);
-        }
-
-        public float GetHealingSpeed()
-        {
-            return _previousDecorator.GetHealingSpeed();
+            return PreviousDecorator.GetDamage() * DamageIncreaseParameter; // Increase damage by 50%
         }
     }
 }

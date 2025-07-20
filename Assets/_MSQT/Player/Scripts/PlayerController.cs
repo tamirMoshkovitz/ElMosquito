@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using _MSQT.Core.Scripts;
 using _MSQT.Enemy.Scripts;
-using _MSQT.Player.Scripts.MosquitoBehaviors;
 using _MSQT.Player.Scripts.MosquitoDecorators;
 using _MSQT.Player.Scripts.UI;
 using UnityEngine;

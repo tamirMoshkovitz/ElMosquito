@@ -1,47 +1,17 @@
-using _MSQT.Player.Scripts.MosquitoDecorators;
-
-namespace _MSQT.Player.Scripts.MosquitoBehaviors
+namespace _MSQT.Player.Scripts.MosquitoDecorators
 {
     /// <summary>
     /// Decorator that enhances the mosquito's rotation speed
     /// </summary>
-    public class ManeuverDecorator: IMosquitoDecorator
+    public class ManeuverDecorator: AbstractPowerUpDecorator
     {
         public static readonly float ManeuverIncreaseParameter = 1.2f;
-        private readonly IMosquitoDecorator _previousBehaviour;
         
-        public ManeuverDecorator(IMosquitoDecorator mosquitoBehaviour)
-        {
-            _previousBehaviour = mosquitoBehaviour;
-        }
-        public float GetMovementSpeed()
-        {
-            return _previousBehaviour.GetMovementSpeed();
-        }
+        public ManeuverDecorator(IMosquitoDecorator mosquitoBehaviour) : base(mosquitoBehaviour) { }
 
-        public float GetRotationSpeed()
+        public override float GetRotationSpeed()
         {
-            return _previousBehaviour.GetRotationSpeed() * ManeuverIncreaseParameter; // Increase rotation speed by 50%
-        }
-
-        public float GetDamage()
-        {
-            return _previousBehaviour.GetDamage();
-        }
-
-        public IMosquitoDecorator GetPreviousDecorator()
-        {
-            return _previousBehaviour;
-        }
-
-        public float UpdateHP(float deltaTime)
-        {
-            return _previousBehaviour.UpdateHP(deltaTime);
-        }
-        
-        public float GetHealingSpeed()
-        {
-            return _previousBehaviour.GetHealingSpeed();
+            return PreviousDecorator.GetRotationSpeed() * ManeuverIncreaseParameter; // Increase rotation speed by 50%
         }
     }
 }

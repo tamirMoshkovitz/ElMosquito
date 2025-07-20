@@ -1,5 +1,4 @@
-
-using _MSQT.Player.Scripts.MosquitoBehaviors;
+using _MSQT.Player.Scripts.MosquitoDecorators;
 
 namespace _MSQT._MQSTPowerUps.Scripts
 {

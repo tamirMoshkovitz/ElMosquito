@@ -19,12 +19,7 @@ namespace _MSQT.Player.Scripts.UI
         {
             _fullWidth = bar.rect.width;
         }
-
-        /// <summary>
-        /// Set a new target value for the bar.
-        /// </summary>
-        /// <param name="newValue"></param>
-        /// <returns>true if the new value is set (happends only if it is significant enough)</returns>
+        
         public bool TrySetValue(float newValue)
         {
             float difference = newValue - _targetValue;
