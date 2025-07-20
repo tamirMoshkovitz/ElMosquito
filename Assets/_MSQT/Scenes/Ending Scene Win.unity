@@ -1998,29 +1998,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 689070103652892770, guid: f3f65918ec6274483b01449ded1a17c6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6923660339315659409, guid: f3f65918ec6274483b01449ded1a17c6, type: 3}
       propertyPath: m_Name
       value: Train
-      objectReference: {fileID: 0}
-    - target: {fileID: 6923660339315659409, guid: f3f65918ec6274483b01449ded1a17c6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511516264491887753, guid: f3f65918ec6274483b01449ded1a17c6, type: 3}
-      propertyPath: m_Size.x
-      value: 1.1102318
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511516264491887753, guid: f3f65918ec6274483b01449ded1a17c6, type: 3}
-      propertyPath: m_Size.z
-      value: 7.8900003
-      objectReference: {fileID: 0}
-    - target: {fileID: 7511516264491887753, guid: f3f65918ec6274483b01449ded1a17c6, type: 3}
-      propertyPath: m_Center.x
-      value: 10.314893
       objectReference: {fileID: 0}
     - target: {fileID: 8396452041706745839, guid: f3f65918ec6274483b01449ded1a17c6, type: 3}
       propertyPath: m_LocalPosition.x

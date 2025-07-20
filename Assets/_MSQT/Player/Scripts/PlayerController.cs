@@ -31,7 +31,7 @@ namespace _MSQT.Player.Scripts
         [SerializeField] private PlayerInfoManager infoManager;
 
         [Header("Boss")]
-        [SerializeField] private BossLife boss;
+        [SerializeField] private BossBehavior boss;
 
         private IMosquitoDecorator _mosquitoBehaviour;
 
@@ -215,7 +215,7 @@ namespace _MSQT.Player.Scripts
                     boss.GetHurt(damageToBoss);
                     if (_canGetHurtByBoss)
                     {
-                        StartCoroutine(GetHurt(33f));
+                        StartCoroutine(GetHurt(20f));
                         StartCoroutine(FiveSecoOfInvulnerability());
                     }
                 } 
