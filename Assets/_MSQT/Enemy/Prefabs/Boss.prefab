@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 786793841697229116}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Elbow Hint Left
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,9 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179109599933586371}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pinky_02_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,9 +72,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5096737439053270468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ring_02_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,9 +104,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4329658118888122906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: foot_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,61 @@ Transform:
   - {fileID: 1083890050627804419}
   m_Father: {fileID: 7544262676096810993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &388705541452804426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6775195650842408401}
+  - component: {fileID: 7408572063731870715}
+  m_Layer: 6
+  m_Name: Calf Collider
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6775195650842408401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388705541452804426}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.203, y: 0.033, z: -0.005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7544262676096810993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7408572063731870715
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388705541452804426}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Height: 0.41
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &612147906141472514
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,9 +191,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7613889692051077908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: index_01_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,9 +223,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 857270064498389762}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: middle_02_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,9 +256,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4636267717628845342}
   - component: {fileID: 4831592399321263449}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spine_03
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,9 +306,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5907591026357127626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pinky_02_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,9 +338,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 881831580012018077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: middle_02_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -316,9 +371,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4426068437608976227}
   - component: {fileID: 6672330836174083208}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Man_Arms_Mesh
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -442,9 +497,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2668060912445684426}
   - component: {fileID: 2227555686522213476}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: clavicle_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -502,9 +557,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4172263202997124474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hand_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -539,9 +594,9 @@ GameObject:
   m_Component:
   - component: {fileID: 379071196067096910}
   - component: {fileID: 4403338843823765362}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Man_Shoes_Mesh
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -632,9 +687,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7748894729351011926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spine_02
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,6 +710,61 @@ Transform:
   - {fileID: 4636267717628845342}
   m_Father: {fileID: 1031785539696150210}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1798120130117622944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8863269395451056278}
+  - component: {fileID: 115733287665672320}
+  m_Layer: 6
+  m_Name: pelvis Collider
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8863269395451056278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798120130117622944}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.303, y: 0.001, z: 0}
+  m_LocalScale: {x: 0.67, y: -0.41, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3433863936790234096}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &115733287665672320
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798120130117622944}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.18
+  m_Height: 1
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1961050943576091734
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,9 +774,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3648957972053288552}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thumb_03_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -695,9 +805,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3482465821793356794}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ring_01_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -727,9 +837,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 297943924476936858}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pinky_01_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -750,6 +860,37 @@ Transform:
   - {fileID: 5907591026357127626}
   m_Father: {fileID: 2283641904650945849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2466467733855364263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6844622574172099720}
+  m_Layer: 6
+  m_Name: IK Head Target
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6844622574172099720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2466467733855364263}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.50573224, y: 0.49420127, z: -0.50573224, w: 0.49420133}
+  m_LocalPosition: {x: 0, y: 1.6806182, z: -0.022938063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1657425137143015822}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2481230649332915179
 GameObject:
   m_ObjectHideFlags: 0
@@ -759,9 +900,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3516830127974546697}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: middle_01_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -791,9 +932,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3446755146653699782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: foot_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -814,6 +955,61 @@ Transform:
   - {fileID: 8699362535164286157}
   m_Father: {fileID: 7166065049795014616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2661118719789192968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3801595937931186341}
+  - component: {fileID: 8558106523218545741}
+  m_Layer: 6
+  m_Name: Upper Arm Collider
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3801595937931186341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661118719789192968}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.182, y: -0.013, z: -0.014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8476919952784496954}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8558106523218545741
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661118719789192968}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Height: 0.3
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2820668363883955110
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,9 +1019,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1092882279444906077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: IK Target Left
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -855,9 +1051,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4496904277217580371}
   - component: {fileID: 173146476280852412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Man_Head_Mesh
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -949,9 +1145,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1254451793198850298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: root
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -982,9 +1178,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8922182898006768011}
   - component: {fileID: 3978538701536731150}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Man_Pants_Mesh
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1069,6 +1265,61 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.38091773, y: 0.0126212835, z: 0.000000014901161}
     m_Extent: {x: 0.5279589, y: 0.17768483, z: 0.27740592}
   m_DirtyAABB: 0
+--- !u!1 &3351973005017617815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 558345672573179623}
+  - component: {fileID: 6474641608687239228}
+  m_Layer: 6
+  m_Name: Head Collider
+  m_TagString: Boss Exposed Skin
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &558345672573179623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351973005017617815}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.014, y: -0.025, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7755101051568935211}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6474641608687239228
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351973005017617815}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Height: 0.29
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3462148041214131788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,9 +1329,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4074914465530151411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: middle_01_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1110,9 +1361,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8699362535164286157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ball_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1141,9 +1392,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1233875167613074930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ring_02_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1173,9 +1424,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619423739579696851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thumb_02_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1196,6 +1447,61 @@ Transform:
   - {fileID: 3648957972053288552}
   m_Father: {fileID: 2793888751949691816}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3772964762308551073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1624807783504031759}
+  - component: {fileID: 6529521318932335952}
+  m_Layer: 6
+  m_Name: Thigh Collider
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1624807783504031759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772964762308551073}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.145, y: -0.004, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2840961430233062801}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &6529521318932335952
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772964762308551073}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.08
+  m_Height: 0.46
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4279230084136500342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,9 +1512,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3678343944893235475}
   - component: {fileID: 7625776104594972406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Man_Pullover_Mesh
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1308,9 +1614,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4021595352108736928}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lowerarm_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1330,6 +1636,7 @@ Transform:
   m_Children:
   - {fileID: 4172263202997124474}
   - {fileID: 5718871043434979023}
+  - {fileID: 2033518711580699438}
   m_Father: {fileID: 8476919952784496954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4583338272257238990
@@ -1341,9 +1648,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1083890050627804419}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ball_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1372,9 +1679,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2435695204990276868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ring_03_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1404,9 +1711,9 @@ GameObject:
   m_Component:
   - component: {fileID: 332561390516586216}
   - component: {fileID: 2157593483511021309}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Man_Eyes_Mesh
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1492,9 +1799,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 662948717578411536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: index_03_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1523,9 +1830,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6635097371887264818}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Elbow Hint Right
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1554,9 +1861,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 841580154715071619}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: index_03_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1585,9 +1892,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6563235996808085951}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pinky_03_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1617,9 +1924,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7341018118348245741}
   - component: {fileID: 3183865260176627183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: IK Path Left
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1662,6 +1969,61 @@ MonoBehaviour:
     roll: 0
   - position: {x: 0, y: 0, z: 5}
     roll: 0
+--- !u!1 &5426971351331952694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3469605350044825442}
+  - component: {fileID: 2909904995665837951}
+  m_Layer: 6
+  m_Name: Thigh Collider (1)
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3469605350044825442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426971351331952694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.158, y: 0.009, z: 0.027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1159541870686540419}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2909904995665837951
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426971351331952694}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.08
+  m_Height: 0.46
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5431850777538771295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1671,9 +2033,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7544262676096810993}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: calf_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1692,6 +2054,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4329658118888122906}
+  - {fileID: 6775195650842408401}
   m_Father: {fileID: 1159541870686540419}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5475427294644984247
@@ -1703,9 +2066,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7820478674296066996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: index_02_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1735,9 +2098,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2283641904650945849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: hand_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1771,9 +2134,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4279095172691194515}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lowerarm_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1793,6 +2156,7 @@ Transform:
   m_Children:
   - {fileID: 2283641904650945849}
   - {fileID: 1253487053869459331}
+  - {fileID: 3360677039711380235}
   m_Father: {fileID: 1196322722288972382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5949441722112761602
@@ -1804,9 +2168,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2626985072351735213}
-  m_Layer: 0
-  m_Name: Head Transform
-  m_TagString: Untagged
+  m_Layer: 6
+  m_Name: Reach Zone Root
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1835,9 +2199,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6084195505964251145}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: index_01_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1867,9 +2231,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7755101051568935211}
-  m_Layer: 0
+  - component: {fileID: 5413629540783481070}
+  m_Layer: 6
   m_Name: head
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1886,9 +2251,174 @@ Transform:
   m_LocalPosition: {x: -0.12162018, y: -0.0065364074, z: 0.0000000037700554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 558345672573179623}
   m_Father: {fileID: 4688249884976478576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5413629540783481070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132241152878691078}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Weight: 1
+  m_Data:
+    m_ConstrainedObject: {fileID: 0}
+    m_SourceObjects:
+      m_Length: 1
+      m_Item0:
+        transform: {fileID: 6844622574172099720}
+        weight: 1
+      m_Item1:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item2:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item3:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item4:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item5:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item6:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item7:
+        transform: {fileID: 0}
+        weight: 0
+    m_Offset: {x: 0, y: 0, z: 0}
+    m_MinLimit: -180
+    m_MaxLimit: 180
+    m_AimAxis: 4
+    m_UpAxis: 2
+    m_WorldUpType: 0
+    m_WorldUpObject: {fileID: 0}
+    m_WorldUpAxis: 2
+    m_MaintainOffset: 0
+    m_ConstrainedAxes:
+      x: 1
+      y: 1
+      z: 0
+--- !u!1 &6275402728201245402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3520358730364390024}
+  - component: {fileID: 8577324701390978662}
+  m_Layer: 6
+  m_Name: Upper Arm Collider
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3520358730364390024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275402728201245402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.15, y: 0.011, z: 0.008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1196322722288972382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8577324701390978662
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6275402728201245402}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Height: 0.3
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6278595393845577683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5163097526243257520}
+  - component: {fileID: 1108399522696536606}
+  m_Layer: 6
+  m_Name: Calf Collider
+  m_TagString: Boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5163097526243257520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6278595393845577683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.275, y: -0.043, z: 0.004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7166065049795014616}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1108399522696536606
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6278595393845577683}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.05
+  m_Height: 0.41
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6292682068898649829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1898,9 +2428,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5066610795692181983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: index_02_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1930,9 +2460,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5156651789271239002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pinky_03_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1961,9 +2491,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8476919952784496954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upperarm_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1982,6 +2512,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4021595352108736928}
+  - {fileID: 3801595937931186341}
   m_Father: {fileID: 831996775825800426}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6648376730611792006
@@ -1993,9 +2524,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7948677118539294169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ring_03_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2024,9 +2555,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3433863936790234096}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pelvis
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2047,6 +2578,7 @@ Transform:
   - {fileID: 1031785539696150210}
   - {fileID: 2840961430233062801}
   - {fileID: 1159541870686540419}
+  - {fileID: 8863269395451056278}
   m_Father: {fileID: 1254451793198850298}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7206333680131008020
@@ -2058,9 +2590,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8740754397780140534}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pinky_01_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2090,9 +2622,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1031785539696150210}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spine_01
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2122,9 +2654,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7166065049795014616}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: calf_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2143,6 +2675,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3446755146653699782}
+  - {fileID: 5163097526243257520}
   m_Father: {fileID: 2840961430233062801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7615754306992859252
@@ -2154,9 +2687,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306639264336323737}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: middle_03_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2185,9 +2718,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8037216966854154858}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thumb_02_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2217,9 +2750,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2526450888660225091}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: IK Target Right
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2248,9 +2781,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5718871043434979023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lowerarm_twist_01_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2279,9 +2812,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4688249884976478576}
-  m_Layer: 0
+  - component: {fileID: 7725857482716877142}
+  m_Layer: 6
   m_Name: neck_01
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2302,6 +2836,60 @@ Transform:
   - {fileID: 7755101051568935211}
   m_Father: {fileID: 4636267717628845342}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7725857482716877142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150962917491128602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Weight: 1
+  m_Data:
+    m_ConstrainedObject: {fileID: 0}
+    m_SourceObjects:
+      m_Length: 1
+      m_Item0:
+        transform: {fileID: 6844622574172099720}
+        weight: 1
+      m_Item1:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item2:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item3:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item4:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item5:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item6:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item7:
+        transform: {fileID: 0}
+        weight: 0
+    m_Offset: {x: 0, y: 0, z: 0}
+    m_MinLimit: -110
+    m_MaxLimit: 110
+    m_AimAxis: 0
+    m_UpAxis: 2
+    m_WorldUpType: 0
+    m_WorldUpObject: {fileID: 0}
+    m_WorldUpAxis: 2
+    m_MaintainOffset: 0
+    m_ConstrainedAxes:
+      x: 1
+      y: 1
+      z: 0
 --- !u!1 &8182494791484480009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2311,9 +2899,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3887614135412903610}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thumb_01_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2343,9 +2931,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4648566207584408906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: middle_03_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2374,9 +2962,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2840961430233062801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thigh_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2395,6 +2983,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7166065049795014616}
+  - {fileID: 1624807783504031759}
   m_Father: {fileID: 3433863936790234096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8511596028955263552
@@ -2407,9 +2996,9 @@ GameObject:
   m_Component:
   - component: {fileID: 831996775825800426}
   - component: {fileID: 8487319650715403175}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: clavicle_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2463,9 +3052,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1159541870686540419}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thigh_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2484,6 +3073,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7544262676096810993}
+  - {fileID: 3469605350044825442}
   m_Father: {fileID: 3433863936790234096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8535874520242966630
@@ -2495,9 +3085,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2793888751949691816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thumb_01_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2527,9 +3117,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253487053869459331}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lowerarm_twist_01_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2549,6 +3139,116 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4279095172691194515}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8751239740112720326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2033518711580699438}
+  - component: {fileID: 1391376102401599487}
+  m_Layer: 6
+  m_Name: Lower Arm Collider
+  m_TagString: Boss Exposed Skin
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2033518711580699438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751239740112720326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.266, y: 0.023, z: 0.011}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4021595352108736928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1391376102401599487
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751239740112720326}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06
+  m_Height: 0.5
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8774432984526854698
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3360677039711380235}
+  - component: {fileID: 1565063170717384958}
+  m_Layer: 6
+  m_Name: Lower Arm Collider
+  m_TagString: Boss Exposed Skin
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3360677039711380235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8774432984526854698}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.251, y: -0.022, z: -0.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4279095172691194515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1565063170717384958
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8774432984526854698}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06
+  m_Height: 0.5
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8891671990566580382
 GameObject:
   m_ObjectHideFlags: 0
@@ -2558,9 +3258,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1862811942719329804}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: thumb_03_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2592,9 +3292,10 @@ GameObject:
   - component: {fileID: 2228240535529786366}
   - component: {fileID: 6792971963954944208}
   - component: {fileID: 1159512059828603909}
-  m_Layer: 0
+  - component: {fileID: 2783331354878302507}
+  m_Layer: 6
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2620,6 +3321,7 @@ Transform:
   - {fileID: 379071196067096910}
   - {fileID: 1254451793198850298}
   - {fileID: 2626985072351735213}
+  - {fileID: 6844622574172099720}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &2228240535529786366
@@ -2665,7 +3367,10 @@ MonoBehaviour:
   leftHandTarget: {fileID: 1092882279444906077}
   leftElbowHint: {fileID: 786793841697229116}
   leftArmIK: {fileID: 8487319650715403175}
+  reachZoneRoot: {fileID: 7755101051568935211}
   head: {fileID: 2626985072351735213}
+  headLookConstraint: {fileID: 7725857482716877142}
+  headLookTarget: {fileID: 6844622574172099720}
   rightIkPath: {fileID: 7978531679296500481}
   leftIkPath: {fileID: 3183865260176627183}
 --- !u!114 &1159512059828603909
@@ -2686,6 +3391,18 @@ MonoBehaviour:
   - m_Rig: {fileID: 4831592399321263449}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &2783331354878302507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963283991744548120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6774af0ad36f49ed86989db1fdc18f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9017496746815349755
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,9 +3412,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8261851207515079985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ring_01_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2728,9 +3445,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6447543674281557926}
   - component: {fileID: 7978531679296500481}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: IK Path Right
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2782,9 +3499,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1196322722288972382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: upperarm_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2803,5 +3520,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4279095172691194515}
+  - {fileID: 3520358730364390024}
   m_Father: {fileID: 2668060912445684426}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

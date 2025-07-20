@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using _MSQT.Core.Scripts;
+using _MSQT.Enemy.Scripts;
 using _MSQT.Player.Scripts.MosquitoBehaviors;
 using _MSQT.Player.Scripts.MosquitoDecorators;
 using _MSQT.Player.Scripts.UI;
@@ -24,12 +25,32 @@ namespace _MSQT.Player.Scripts
         [SerializeField] private float autoLevelSpeed = 2f;
         
         [Header("Attack")]
-        [SerializeField] private float baseDamage = 10f;
+        [SerializeField] private float baseDamage = 15f;
         
         [Header("UI")]
         [SerializeField] private PlayerInfoManager infoManager;
 
+        [Header("Boss")]
+        [SerializeField] private BossLife boss;
+
         private IMosquitoDecorator _mosquitoBehaviour;
+
+        private Rigidbody _rigidbody;
+        private PlayerInput _playerInput;
+
+        private Vector2 _lookInput;       // right stick X,Y
+        private bool _doBoost;
+        private bool _lookInputActive;
+
+        private Vector3 _currentVelocity;
+
+        private float _health = 100f;
+        private bool _canGetHurt = true;
+        private const float MaxHealth = 100f;
+        private const float MaxManeuver = 216f;
+
+        private const float MaxDamage = 50.625f;
+        
         public IMosquitoDecorator MosquitoBehaviour
         {
             get => _mosquitoBehaviour;
@@ -40,8 +61,7 @@ namespace _MSQT.Player.Scripts
                 
                 _mosquitoBehaviour = value;
                 
-                // if Maneuver is high, add speed
-                if (_mosquitoBehaviour.GetRotationSpeed() >= MaxManeuver * .9f)
+                if (_mosquitoBehaviour.GetRotationSpeed() >= MaxManeuver * .9f) // if Maneuver is high, add speed
                 {
                     _mosquitoBehaviour = new SpeedDecorator(_mosquitoBehaviour);
                 }
@@ -59,21 +79,6 @@ namespace _MSQT.Player.Scripts
                 }
             }
         }
-
-        private Rigidbody _rigidbody;
-        private PlayerInput _playerInput;
-
-        private Vector2 _lookInput;       // right stick X,Y
-        private bool _doBoost;
-        private bool _lookInputActive;
-
-        private Vector3 _currentVelocity;
-
-        private float _health = 100f;
-        private const float MaxHealth = 100f;
-        private const float MaxManeuver = 216f;
-
-        private const float MaxDamage = 33.75f;
 
         public float Health
         {
@@ -93,7 +98,7 @@ namespace _MSQT.Player.Scripts
             // the game starts with a some power-ups (splited between Awake and Start for UI initialization)
             baseRotationSpeed /= ManeuverDecorator.ManeuverIncreaseParameter;
             baseDamage /= DamageDecorator.DamageIncreaseParameter;
-            _mosquitoBehaviour = new BasicMosquitoBehavior(moveSpeed, baseRotationSpeed, baseDamage);   
+            _mosquitoBehaviour = new BasicMosquitoBehavior(moveSpeed, baseRotationSpeed, baseDamage);
             infoManager.Awake();
         }
 
@@ -153,6 +158,7 @@ namespace _MSQT.Player.Scripts
 
         void FixedUpdate()
         {
+            _rigidbody.angularVelocity = Vector3.zero;
             Vector3 desiredVelocity = transform.forward * (fixedForwardSpeed + MosquitoBehaviour.GetMovementSpeed());
             _currentVelocity = Vector3.MoveTowards(_currentVelocity, desiredVelocity, moveAcceleration * Time.fixedDeltaTime);
             _rigidbody.MovePosition(_rigidbody.position + _currentVelocity * Time.fixedDeltaTime);
@@ -174,10 +180,10 @@ namespace _MSQT.Player.Scripts
             Quaternion deltaRotation = Quaternion.Euler(pitch, 0f, roll);
             _rigidbody.MoveRotation(_rigidbody.rotation * deltaRotation);
 
-            if (_doBoost && _health > 75f)
+            if (_doBoost)
             {
                 _rigidbody.AddForce(transform.forward * (MosquitoBehaviour.GetMovementSpeed() * 50), ForceMode.Acceleration);
-                StartCoroutine(GetHurt());
+                StartCoroutine(GetHurt(10f));
                 _doBoost = false;
             }
             else
@@ -189,7 +195,39 @@ namespace _MSQT.Player.Scripts
 
         private void OnCollisionEnter(Collision other)
         {
-            StartCoroutine(GetHurt());
+            HandleCollisionPhysics(other);
+            HandleHealthLogic(other);
+        }
+
+        private void HandleHealthLogic(Collision other)
+        {
+            if (other.gameObject.layer == LayerMask.NameToLayer("Boss"))
+            {
+                if (other.gameObject.CompareTag("Boss Head") || other.gameObject.CompareTag("Boss Arms"))
+                {
+                    if (other.gameObject.CompareTag("Boss Head"))
+                    {
+                        boss.GetHurt(_mosquitoBehaviour.GetDamage());
+                        StartCoroutine(FiveSecoOfInvulnerability());
+                        return;
+                    }
+                    if (other.gameObject.CompareTag("Boss Arms"))
+                    {
+                        boss.GetHurt(_mosquitoBehaviour.GetDamage() / 2); // the arms are less vulnerable
+                        StartCoroutine(FiveSecoOfInvulnerability());
+                    }
+                } 
+                StartCoroutine(GetHurt(33f));
+            }
+            else
+                StartCoroutine(GetHurt(15f));
+        }
+
+        private void HandleCollisionPhysics(Collision other)
+        {
+            // Optionally zero angular velocity to prevent spinning
+            _rigidbody.angularVelocity = Vector3.zero;
+            _rigidbody.linearVelocity = Vector3.zero;
             
             // Reflect the current velocity vector on contact normal
             Vector3 bounceDirection = Vector3.Reflect(_currentVelocity.normalized, other.GetContact(0).normal);
@@ -197,18 +235,22 @@ namespace _MSQT.Player.Scripts
             // Apply bounce rotation using the current up direction to maintain local orientation
             Quaternion bounceRotation = Quaternion.LookRotation(bounceDirection, transform.up);
             _rigidbody.MoveRotation(bounceRotation);
-
-            // Optionally zero angular velocity to prevent spinning
-            _rigidbody.angularVelocity = Vector3.zero;
-            _rigidbody.linearVelocity = Vector3.zero;
         }
 
-        private IEnumerator GetHurt()
+        private IEnumerator FiveSecoOfInvulnerability()
         {
+            _canGetHurt = false;
+            yield return new WaitForSeconds(5f);
+            _canGetHurt = true;
+        }
+
+        private IEnumerator GetHurt(float damage)
+        {
+            if (!_canGetHurt) yield break;
             MosquitoBehaviour = MosquitoBehaviour.GetPreviousDecorator();
             GameEvents.LostPowerUp?.Invoke();
             
-            float targetHealth = Health - 10f;
+            float targetHealth = Health - damage;
             float elapsedTime = 0f;
             while (elapsedTime < 0.5f)
             {
@@ -218,6 +260,20 @@ namespace _MSQT.Player.Scripts
                 yield return null;
             }
             Health = targetHealth;
+            if (Health <= 0f)
+            {
+                StartCoroutine(Death());
+            }
+        }
+
+        private IEnumerator Death()
+        {
+            _playerInput.actions.Disable();
+            _rigidbody.useGravity = true;
+            yield return new WaitForSeconds(2f);
+            _rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+            yield return new WaitForSeconds(5f);
+            SceneLoader.LoadScene(SceneName.LoseEnding);
         }
     }
 }
