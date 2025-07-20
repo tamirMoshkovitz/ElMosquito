@@ -56,25 +56,25 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 3
   enabled:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   colorMode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    m_Value: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
   maxFogDistance:
     m_OverrideState: 1
-    m_Value: 678
+    m_Value: 506.3
   mipFogMaxMip:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.849
   mipFogNear:
     m_OverrideState: 1
     m_Value: 0
@@ -86,25 +86,25 @@ MonoBehaviour:
     m_Value: -270.04
   maximumHeight:
     m_OverrideState: 1
-    m_Value: 37.7
+    m_Value: 416.8
   meanFreePath:
     m_OverrideState: 1
-    m_Value: 129.3
+    m_Value: 305.1
   enableVolumetricFog:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   albedo:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 1, g: 0.5424528, b: 0.5424528, a: 1}
   globalLightProbeDimmer:
     m_OverrideState: 1
     m_Value: 1
   depthExtent:
     m_OverrideState: 1
-    m_Value: 64
+    m_Value: 69.8
   denoisingMode:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0
   anisotropy:
     m_OverrideState: 1
     m_Value: 0
@@ -113,25 +113,25 @@ MonoBehaviour:
     m_Value: 0.75
   multipleScatteringIntensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.5
   m_FogControlMode:
     m_OverrideState: 1
     m_Value: 0
   screenResolutionPercentage:
     m_OverrideState: 1
-    m_Value: 12.5
+    m_Value: 6.3
   volumeSliceCount:
     m_OverrideState: 1
     m_Value: 64
   m_VolumetricFogBudget:
     m_OverrideState: 1
-    m_Value: 0.33
+    m_Value: 0.166
   m_ResolutionDepthRatio:
     m_OverrideState: 1
     m_Value: 0.666
   directionalLightsOnly:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
 --- !u!114 &-7484696006541466074
 MonoBehaviour:
   m_ObjectHideFlags: 3
