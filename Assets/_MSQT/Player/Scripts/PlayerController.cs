@@ -46,6 +46,7 @@ namespace _MSQT.Player.Scripts
 
         private float _health = 100f;
         private bool _canGetHurtByBoss = true;
+        private bool _dead;
         private const float MaxHealth = 100f;
         private const float MaxManeuver = 216f;
 
@@ -152,8 +153,11 @@ namespace _MSQT.Player.Scripts
 
         void Update()
         {
-            Health = Mathf.Clamp(Health + MosquitoBehaviour.UpdateHP(Time.deltaTime), 0f, MaxHealth);
-            infoManager.UpdateHPBar(Health / MaxHealth);
+            if (!_dead)
+            {
+                Health = Mathf.Clamp(Health + MosquitoBehaviour.UpdateHP(Time.deltaTime), 0f, MaxHealth);
+                infoManager.UpdateHPBar(Health / MaxHealth);
+            }
         }
 
         void FixedUpdate()
@@ -268,6 +272,7 @@ namespace _MSQT.Player.Scripts
 
         private IEnumerator Death()
         {
+            _dead = true;
             _playerInput.actions.Disable();
             _rigidbody.useGravity = true;
             yield return new WaitForSeconds(2f);
