@@ -72,5 +72,33 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 - **Course:** Advanced Unity (2025 Minor in Game Design)
 
 ---
+## 🎵 Music Credits
+
+### Opening Scene:
+
+- “Mosquito​” by KAJ
+
+### In-Game:
+
+- “Danger Zone” by Kenny Loggins
+
+### Ending:
+
+- “Take My Breath Away” by Berlin
+
+- “Memories”  by Harold Faltermeyer​
+
+
+---
+
+This project was created as part of the Advanced Unity course
+
+at the Hebrew University × Bezalel Academy (2025).
+
+It is a non-commercial, student project made purely for pedagogical purposes.
+
+All copyrighted music is used under the assumption of fair educational use,
+
+and no profit or monetization is intended.
 
 > _"Think you're a big-shot mosquito? Let's see you bite this dude until he blacks out. Oh - and yeah - he slaps. Hard."_
