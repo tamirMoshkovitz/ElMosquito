@@ -34,6 +34,7 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 ---
 
 ## 🎮 Controls
+(the game is made for a gamepad)
 
 | Action       | Input                |
 |--------------|----------------------|
