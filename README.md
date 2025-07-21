@@ -16,11 +16,11 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 ## Videos
 
 - [Gameplay](https://youtu.be/Kp4RKf0lAo8)  
-- [Technical Overview](#)
+- [Technical Overview](https://drive.google.com/file/d/1Un0tSdOGo83M4Yo-Xscyc99jX-QyVUVX/view?usp=sharing)
 
 ---
 
-## Boss Design: 2 Phases of Pain
+## Boss Design: 2 Phases
 
 1. **Phase 1 – The Seated Slapper**  
    - He sits. You bite. He slaps.  
