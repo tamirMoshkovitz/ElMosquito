@@ -50,7 +50,7 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 - Boss arms use **Cinemachine path + TwoBoneIK**  
 - Attacks trigger based on player distance and a random reaction timing
 
-### Decorator-Based Mosquito Powers  
+### Decorator-Based Mosquito Powerups
 - Speed, Maneuver, Damage buffs stack and modify base behavior  
 - Reversible stack allows power-up loss on hit
 
