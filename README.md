@@ -1,6 +1,6 @@
 # 🦟 EL MOSQUITO
 _Advanced Unity Course Project (HUJI × Bezalel, 2025)_
-- \* All of my code is under "Assets/_MSQT"
+- All of my code is under "Assets/_MSQT"
 ---
 ![Gameplay](Assets/_MSQT/ScreenShots/GamePlayScreenShot.png)
 ---
