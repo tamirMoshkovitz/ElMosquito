@@ -1,3 +1,12 @@
+***This project was developed by me in a very short time***
+## Code presents:
+#### OOP principeles (SOLID)
+#### Deisng Patterns:
+- Singleton
+- Observer
+- Decorator
+- Object Pooling
+
 # 🦟 EL MOSQUITO
 _Advanced Unity Course Project (HUJI × Bezalel, 2025)_
 - All of my code is under "Assets/_MSQT"
@@ -104,8 +113,3 @@ All copyrighted music is used under the assumption of fair educational use,
 
 and no profit or monetization is intended.
 
----
-
-\* All of my code is under "Assets/_MSQT"
-
----
