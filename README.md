@@ -6,7 +6,7 @@
 - Observer
 - Decorator
 - Object Pooling
-
+---
 # 🦟 EL MOSQUITO
 _Advanced Unity Course Project (HUJI × Bezalel, 2025)_
 - All of my code is under "Assets/_MSQT"
