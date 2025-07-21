@@ -1,12 +1,11 @@
 # 🦟 EL MOSQUITO
 _Advanced Unity Course Project (HUJI × Bezalel, 2025)_
+- \* All of my code is under "Assets/_MSQT"
 ---
 ![Gameplay](Assets/_MSQT/ScreenShots/GamePlayScreenShot.png)
 ---
 
 ## Game Description
-
-You are not just a mosquito — you're **the** mosquito.
 
 Your mission: **bite down** a dude on a train before he slaps you dead.  
 This one-level boss fight combines reactive AI, procedural animation, and decorator-driven upgrades in a fast-paced, precision-driven experience.
