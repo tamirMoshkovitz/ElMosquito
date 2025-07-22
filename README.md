@@ -1,11 +1,17 @@
 ***This project was developed by me in a very short time***
-## Code presents:
-#### OOP principeles (SOLID)
+## Code Highlights
+#### OOP principeles
+- Follows SOLID principles for clean, maintainable architecture
 #### Deisng Patterns:
 - Singleton
 - Observer
 - Decorator
 - Object Pooling
+#### Scalability
+The code is designed to be highly modular and easily extensible, allowing:
+- Simple integration of new powerups
+- Addition of new boss phases, attack logic, or AI states
+- Expansion of audio systems, UI elements, and gameplay features with minimal changes
 ---
 # 🦟 EL MOSQUITO
 _Advanced Unity Course Project (HUJI × Bezalel, 2025)_
