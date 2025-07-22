@@ -1,21 +1,30 @@
-***This project was developed by me in a very short time***
+>  Developed solo under tight time constraints as part of an academic challenge.
 ### Code Highlights
-##### OOP principeles
+
+##### OOP principles
+
 - Follows SOLID principles for clean, maintainable architecture
-##### Deisng Patterns:
+
+##### Design Patterns:
+
 - Singleton
 - Observer
 - Decorator
 - Object Pooling
+  
 ##### Scalability
+
 The code is designed to be highly modular and easily extensible, allowing:
 - Simple integration of new powerups
 - Addition of new boss phases, attack logic, or AI states
 - Expansion of audio systems, UI elements, and gameplay features with minimal changes
+
 ---
 # 🦟 EL MOSQUITO
-_Advanced Unity Course Project (HUJI × Bezalel, 2025)_
-- All of my code is under "Assets/_MSQT"
+
+_Advanced Unity Course Project · Hebrew University × Bezalel (2025)_
+
+- All of my code is located under "Assets/_MSQT"
 ---
 ![Gameplay](Assets/_MSQT/ScreenShots/GamePlayScreenShot.png)
 ---
@@ -60,13 +69,13 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 
 ## Notable Systems
 
-### InverseKinematic Slap System  
+### Inverse Kinematic Slap System  
 - Boss arms use **Cinemachine path + TwoBoneIK**  
-- Attacks trigger based on player distance and a random reaction timing
+- Attacks trigger based on player distance and randomized reaction timing
 
 ### Decorator-Based Mosquito Powerups
-- Speed, Maneuver, Damage buffs stack and modify base behavior  
-- Reversible stack allows power-up loss on hit
+- Speed, Maneuverability, and Damage buffs stack via the Decorator pattern  
+- Power-up stack is reversible – buffs are lost when hit
 
 ---
 
@@ -79,7 +88,7 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 
 ### Credits
 
-- **Developer & Designer:** Tamir Moshkovitz  
+- **Developer:** Tamir Moshkovitz  
 - **Institution:** Hebrew University & Bezalel Academy  
 - **Course:** Advanced Unity (2025 Minor in Game Dev & Design)
 - **Guidance:** Shahar Bar
