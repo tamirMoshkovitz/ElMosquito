@@ -1,13 +1,13 @@
 ***This project was developed by me in a very short time***
-## Code Highlights
-#### OOP principeles
+### Code Highlights
+##### OOP principeles
 - Follows SOLID principles for clean, maintainable architecture
-#### Deisng Patterns:
+##### Deisng Patterns:
 - Singleton
 - Observer
 - Decorator
 - Object Pooling
-#### Scalability
+##### Scalability
 The code is designed to be highly modular and easily extensible, allowing:
 - Simple integration of new powerups
 - Addition of new boss phases, attack logic, or AI states
