@@ -5,7 +5,7 @@
 
 - Follows SOLID principles for clean, maintainable architecture
 
-##### Design Patterns:
+##### Design Patterns
 
 - Singleton
 - Observer
