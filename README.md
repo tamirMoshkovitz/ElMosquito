@@ -43,6 +43,13 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 
 ---
 
+
+## ▶ Play the Game
+
+[ItchIO page](https://tamirmoshko.itch.io/el-mosquito)
+
+---
+
 ## Boss Design: 2 Phases
 
 1. **Phase 1 – The Seated Slapper**  
@@ -79,14 +86,7 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 
 ---
 
-## ▶ Play the Game
-
-----------
-[ItchIO page](https://tamirmoshko.itch.io/el-mosquito)
-
----
-
-### Credits
+# Credits
 
 - **Developer:** Tamir Moshkovitz  
 - **Institution:** Hebrew University & Bezalel Academy  
@@ -94,27 +94,26 @@ This one-level boss fight combines reactive AI, procedural animation, and decora
 - **Guidance:** Shahar Bar
 
 ---
-## Packages
+### Packages
 
 - All imported packages are from the Unity Asset Store
 
 ---
-## Music
+### Music
 
-### Opening Scene:
+#### Opening Scene:
 
 - “Mosquito​” by KAJ
 
-### In-Game:
+#### In-Game:
 
 - “Danger Zone” by Kenny Loggins
 
-### Ending:
+#### Ending:
 
 - “Take My Breath Away” by Berlin
 
 - “Memories”  by Harold Faltermeyer​
-
 
 ---
 
